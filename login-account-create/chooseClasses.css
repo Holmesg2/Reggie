@@ -1,0 +1,32 @@
+body {
+	background-color: #8664c3;
+}
+
+
+a{
+	color: #ffffff;
+}
+.form-classes {
+  width: 100%;
+  max-width: 750px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.header {
+	margin-bottom: 20px;
+}
+
+.container1 {
+	width: 750px;
+}
+
+.radio-btn {
+	display : none;
+}
+
+.btn-primary {
+	color: #000;
+	background-color: #e0e0e0;
+	border-color: #ff00f7;
+}
