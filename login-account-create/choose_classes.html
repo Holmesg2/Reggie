@@ -15,103 +15,188 @@
   
   <body class="text-center">
 	<form class="form-classes" method="POST" action="">
-	  <h2 class="header">Choose the classes you have already completed</h2>
-		<div class="" data-toggle="buttons">
-			<label class="btn btn-primary">
-				<input type="radio" class="radio-btn"> Class 1 ----- maybe a description --- other stuff
-			</label>
-			<label class="btn btn-primary">
-				<input type="radio" class="radio-btn"> Class 2 ----- maybe a description --- other stuff
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
-			<label class="btn btn-primary"> 
-				<input type="radio" class="radio-btn"> this stuff will need to be generated based on tracking sheet
-			</label>
+	  <h2 class="header">Select the courses you have already completed</h2>
+		<div class="radio-toolbar" data-toggle="buttons">
+			<input type="checkbox" id="checkbox1" class="check-btn" value="comp128"/>
+			<label for="checkbox1" class="btn btn-primary container-fluid">COMP128 - Computer Science I</label>
+			
+			<input type="checkbox" id="checkbox2" class="check-btn" value="comp105"/>
+			<label for="checkbox2" class="btn btn-primary container-fluid">COMP105 - Introduction to Networking and Systems</label>
+
+			<input type="checkbox" id="checkbox3" class="check-btn" value="engl100"/>
+			<label for="checkbox3" class="btn btn-primary container-fluid">ENGL100 - English I</label>
+
+			<input type="checkbox" id="checkbox4" class="check-btn" value="math285"/>
+			<label for="checkbox4" class="btn btn-primary container-fluid">MATH285 - Engineering Calculus I</label>
+
+			<input type="checkbox" id="checkbox5" class="check-btn" value="comp201"/>
+			<label for="checkbox5" class="btn btn-primary container-fluid">COMP201 - Computer Science II</label>
+			
+			<input type="checkbox" id="checkbox6" class="check-btn" value="engl130"/>
+			<label for="checkbox6" class="btn btn-primary container-fluid">ENGL130 - English II</label>
+			
+			<input type="checkbox" id="checkbox7" class="check-btn" value="math295"/>
+			<label for="checkbox7" class="btn btn-primary container-fluid">MATH295 - Engineering Calculus II</label>
+			
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>First Science Elective</option>
+				<option value="phys1">Physics I</option>
+				<option value="chem1">Chemistry I</option>
+				<option value="bio1">Biology I</option>
+			</select>
+			
+			<input type="checkbox" id="checkbox9" class="check-btn" value="comp278"/>
+			<label for="checkbox9" class="btn btn-primary container-fluid">COMP278 - Computer Architecture</label>
+			
+			<input type="checkbox" id="checkbox10" class="check-btn" value="comp285"/>
+			<label for="checkbox10" class="btn btn-primary container-fluid">COMP285 - Object Oriented Programming</label>
+			
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Humanities/Social Science Elective</option>
+				<option value="Technical Writing">Technical Writing</option>
+				<option value="Media Ethics">Media Ethics</option>
+				<option value="Museums of Boston">Museums of Boston</option>
+				<option value="Contemporary Art and Theory">Contemporary Art and Theory</option>
+				<option value="American Dream">American Dream</option>
+				<option value="Intro to Psychology">Intro to Psychology</option>
+				<option value="Sports Psychology">Sports Psychology</option>
+				<option value="Criminology">Criminology</option>
+				<option value="Sociology">Sociology</option>
+			</select>
+
+
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Second Science Elective</option>
+				<option value="phys2">Physics II</option>
+				<option value="chem2">Chemistry II</option>
+				<option value="bio2">Biology II</option>
+			</select>
+
+			<input type="checkbox" id="checkbox13" class="check-btn" value="comp310"/>
+			<label for="checkbox13" class="btn btn-primary container-fluid">COMP310 - Data Structures</label>
+
+			<input type="checkbox" id="checkbox14" class="check-btn" value="comp355"/>
+			<label for="checkbox14" class="btn btn-primary container-fluid">COMP355 - Database Management Systems</label>
+
+			<input type="checkbox" id="checkbox15" class="check-btn" value="math410"/>
+			<label for="checkbox15" class="btn btn-primary container-fluid">MATH410 - Discrete Mathematics</label>
+
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Humanities/Social Science Elective</option>
+				<option value="Technical Writing">Technical Writing</option>
+				<option value="Media Ethics">Media Ethics</option>
+				<option value="Museums of Boston">Museums of Boston</option>
+				<option value="Contemporary Art and Theory">Contemporary Art and Theory</option>
+				<option value="American Dream">American Dream</option>
+				<option value="Intro to Psychology">Intro to Psychology</option>
+				<option value="Sports Psychology">Sports Psychology</option>
+				<option value="Criminology">Criminology</option>
+				<option value="Sociology">Sociology</option>
+			</select>
+			
+			<input type="checkbox" id="checkbox17" class="check-btn" value="comp438"/>
+			<label for="checkbox17" class="btn btn-primary container-fluid">COMP438 - Assembly Language</label>
+			
+			<input type="checkbox" id="checkbox18" class="check-btn" value="comp501"/>
+			<label for="checkbox18" class="btn btn-primary container-fluid">COMP501 - Introduction to Programming Languages</label>
+			
+			<input type="checkbox" id="checkbox19" class="check-btn" value="math440"/>
+			<label for="checkbox19" class="btn btn-primary container-fluid">MATH440 - Linear and Vector Algebra</label>
+			
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Humanities/Social Science Elective</option>
+				<option value="Technical Writing">Technical Writing</option>
+				<option value="Media Ethics">Media Ethics</option>
+				<option value="Museums of Boston">Museums of Boston</option>
+				<option value="Contemporary Art and Theory">Contemporary Art and Theory</option>
+				<option value="American Dream">American Dream</option>
+				<option value="Intro to Psychology">Intro to Psychology</option>
+				<option value="Sports Psychology">Sports Psychology</option>
+				<option value="Criminology">Criminology</option>
+				<option value="Sociology">Sociology</option>
+			</select>
+			
+			<input type="checkbox" id="checkbox21" class="check-btn" value="comp362"/>
+			<label for="checkbox21" class="btn btn-primary container-fluid">COMP362 - Operating Systems</label>
+			
+			<input type="checkbox" id="checkbox22" class="check-btn" value="comp414"/>
+			<label for="checkbox22" class="btn btn-primary container-fluid">COMP414 - Algorithm Design and Analysis</label>
+			
+			<input type="checkbox" id="checkbox23" class="check-btn" value="math505"/>
+			<label for="checkbox23" class="btn btn-primary container-fluid">MATH505 - Probability and Statistics for Engineers</label>
+			
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Science Elective</option>
+				<option value="envbio">Environmental Biology</option>
+				<option value="engchem">Engineering Chemistry</option>
+				<option value="biochem">Biochemistry</option>
+				<option value="astro">Astronomy</option>
+				<option value="compphys">Computational Physics<s/option>
+			</select>
+			
+			<input type="checkbox" id="checkbox25" class="check-btn" value="comp566"/>
+			<label for="checkbox25" class="btn btn-primary container-fluid">COMP566 - Software Engineering</label>
+
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Advanced Computer Science Elective</option>
+				<option value="Artificial Intelligence">Artificial Intelligence</option>
+				<option value="Parallel Computing">Parallel Computing</option>
+				<option value="Intro to Biostatistics">Intro to Biostatistics</option>
+				<option value="Web Development">Web Development</option>
+				<option value="Mobile App Development">Mobile App Development</option>
+			</select>
+			
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Advanced Computer Science Elective</option>
+				<option value="Artificial Intelligence">Artificial Intelligence</option>
+				<option value="Parallel Computing">Parallel Computing</option>
+				<option value="Intro to Biostatistics">Intro to Biostatistics</option>
+				<option value="Web Development">Web Development</option>
+				<option value="Mobile App Development">Mobile App Development</option>
+			</select>
+			
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Humanities/Social Science Elective</option>
+				<option value="Technical Writing">Technical Writing</option>
+				<option value="Media Ethics">Media Ethics</option>
+				<option value="Museums of Boston">Museums of Boston</option>
+				<option value="Contemporary Art and Theory">Contemporary Art and Theory</option>
+				<option value="American Dream">American Dream</option>
+				<option value="Intro to Psychology">Intro to Psychology</option>
+				<option value="Sports Psychology">Sports Psychology</option>
+				<option value="Criminology">Criminology</option>
+				<option value="Sociology">Sociology</option>
+			</select>
+			
+			<input type="checkbox" id="checkbox29" class="check-btn" value="comp655"/>
+			<label for="checkbox29" class="btn btn-primary container-fluid">COMP655 - Senior Project in BCOS </label>
+			
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Advanced Computer Science Elective</option>
+				<option value="Artificial Intelligence">Artificial Intelligence</option>
+				<option value="Parallel Computing">Parallel Computing</option>
+				<option value="Intro to Biostatistics">Intro to Biostatistics</option>
+				<option value="Web Development">Web Development</option>
+				<option value="Mobile App Development">Mobile App Development</option>
+			</select>
+			
+			<select class="dropdown" type="select" name="Tracking Sheet">
+				<option value="" disabled selected>Advanced Computer Science Elective</option>
+				<option value="Artificial Intelligence">Artificial Intelligence</option>
+				<option value="Parallel Computing">Parallel Computing</option>
+				<option value="Intro to Biostatistics">Intro to Biostatistics</option>
+				<option value="Web Development">Web Development</option>
+				<option value="Mobile App Development">Mobile App Development</option>
+			</select>
+			
+			<input type="checkbox" id="checkbox32" class="check-btn" value="phil450"/>
+			<label for="checkbox32" class="btn btn-primary container-fluid">PHIL450 - Ethics</label>
 			
 			<div>
 			 <button type="submit" class="btn btn-default">Confirm selection</button>
 			</div>
 		</div>
-		<!-- <label class="buttons">
-			<input type="radio" value="option1"> Class 1 ----- maybe a description --- other stuff
-		</label>
-		<label class="buttons">
-			<input type="radio" value="option1"> Class 2 ----- maybe a description --- other stuff
-		</label>
-		<label class="buttons">
-			<input type="radio" value="option1"> this stuff will need to be generated based on tracking sheet
-		</label> -->
-<!-- 			<div class="container-fixed" data-toggle="buttons">
-				<label>
-					<input type="button" class="button" value="class1 ----- maybe a description --- other stuff"/>
-				</label>
-				<label>
-					<input type="button" class="button" value="class1 ----- maybe a description --- other stuff"/>
-				</label>
-				
-			</div> -->
+		
 </body>
 
 
