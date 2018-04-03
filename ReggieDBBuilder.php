@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "wit123";
-$dbname = "reggiedb";
+require_once('config.php');
 //Create db
 //SEMESTERS : FreshmanFall=0 FreshmanSpring=1 ,Sophomorefall=2, SophomoreSpring=3, JuniorFall=4, 
 //JuniorSummer=5,SeniorSpring=6,SeniorSummer=7
@@ -96,9 +93,9 @@ if ($conn->query($sql_req) === TRUE) {
 //courseID COMP#### etc. just like in lconnect
 $sql_course = "CREATE TABLE IF NOT EXISTS course (
 CourseID VARCHAR(8) PRIMARY KEY,
+courseName VARCHAR(30),
 preReq VARCHAR(20),
-tags VARCHAR(20),
-courseName VARCHAR(30)
+tags VARCHAR(20)
 )";
 if ($conn->query($sql_course) === TRUE) {
     echo "Table course created successfully<br/>";

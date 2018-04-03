@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
 	<!-- redirect on submit to appropriate location--> 
-	<script>
+	<!-- <script>
 		var submit = function (e) {
 			if (e.preventDefault) {
 				e.preventDefault();
@@ -26,7 +26,7 @@
 		window.onload = function () {
 			document.addEventListener('submit', submit);
 		}
-	</script>
+	</script> -->
 	
     <title>Reggie Sign In</title>
 	<link rel="icon" href="reggie.png">
@@ -36,24 +36,24 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin" action="" method="POST" id="create_account_form">
+    <form class="form-signin" action="add_user.php" method="POST" id="create_account_form">
       <img class="mb-4" src="reggie.png" alt="" width="120" height="120">
       <h1 class="h3 mb-3 font-weight-normal">Create your account</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
 	  
       <label for="inputPassword" class="sr-only">Password</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+      <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required>
 	  
-	  <select class="form-control" type="select" required>
+	  <select class="form-control" type="select" name="school" required>
 		<option value="" disabled selected>School</option>
 		<option value="WIT">Wentworth Institute of Technology</option>
 		<option value="none" disabled>Some other School that you cant pick</option>
 	  </select>
 	  
-	  <select class="form-control" type="select" name="Tracking Sheet" required>
+	  <select class="form-control" type="select" name="tracking-sheet" required>
 		<option value="" disabled selected>Tracking Sheet</option>
-		<option value="COMPSCI">Computer Science 2014</option>
+		<option value="COMP1415">Computer Science 2014</option>
 		<option value="none" disabled>Some other tracking sheet that you cant pick</option>
 	  </select>
 	
