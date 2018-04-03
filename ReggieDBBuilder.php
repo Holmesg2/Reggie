@@ -28,7 +28,7 @@ $sql_student = "CREATE TABLE IF NOT EXISTS student (
 userID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
 trackingID VARCHAR(8) NOT NULL,
 year INTEGER(1) NOT NULL,
-email VARCHAR(50) NOT NULL,
+email VARCHAR(50) UNIQUE NOT NULL,
 password CHAR(32)
 )";  
 
@@ -141,16 +141,18 @@ $sqlinReq = "INSERT IGNORE INTO requirement(reqID, requirement) VALUES ('SCIELEC
             }
   
 $sqlinCourse = "INSERT IGNORE INTO course(courseID, courseName, preReq, tags) VALUES ('COMP128', 'Computer Science 1', '', ''), ('COMP105', 'Introduction to Networking and Systems', '', ''),
-('ENGL100', 'English 1', '',''), ('Math285', 'Engineering Calculus 1', '', ''), ('COMP201', 'Computer Science 2', 'COMP128', ''), ('ENGL130', 'English II', 'ENGL100',''), 
+('ENGL100', 'English 1', '',''), ('MATH285', 'Engineering Calculus 1', '', ''), ('COMP201', 'Computer Science 2', 'COMP128', ''), ('ENGL130', 'English II', 'ENGL100',''), 
 ('MATH295', 'Engineering Calculus II', 'MATH285', ''), ('PHYS1', 'Physics I', '', 'scielec'), ('CHEM1', 'Chemistry I', '', 'scielec'), ('BIO1', 'Biology I', '','scielec'),
-('COMP278', 'Computer Architecture', 'COMP201', ''),('COMP285', 'Object Oriented Programming', 'COMP201', ''),  ('HUMN0001', 'Technical WRiting', '','humnnelec'), ('HUMN0002', 'Media Ethics', '', 'humnnelec'), ('HUMN0003','Museums of Boston', '', 'humnelec'),
+('COMP278', 'Computer Architecture', 'COMP201', ''),('COMP285', 'Object Oriented Programming', 'COMP201', ''),  ('HUMN0001', 'Technical Writing', '','humnnelec'), ('HUMN0002', 'Media Ethics', '', 'humnnelec'), ('HUMN0003','Museums of Boston', '', 'humnelec'),
 ('HUMN0004', 'Contemporary Art and Theory', '', 'humnelec'), ('HUMN0005', 'American Dream', '', 'humnelec'), ('HUMN0006', 'Intro to Psychology', '' ,'humnelec'),
 ('HUMN0007', 'Criminology', '', 'humnelec'), ('HUMN0008', 'Sociology', '','humnelec'), ('PHYS2','Physics II', 'PHYS1', 'scielec'), ('CHEM2', 'Chemistry II', 'CHEM1', 'scielec'), ('BIO2', 'Biology II', 'BIO1', 'scielec'),
 ('COMP310', 'Data Structures', 'COMP285', ''), ('COMP355', 'Database Management', 'COMP285', ''), ('MATH410', 'Discrete Mathematics', 'MATH295', ''), ('COMP438', 'Assembly Language', 'COMP285', ''),
 ('COMP501', 'Introduction to Programming Languages', 'COMP285', ''), ('MATH440', 'Linear and Vector Algebra', 'MATH410', ''), ('COMP362', 'Operating Systems', 'COMP128',''),
 ('COMP414', 'Algorithm Design and Analysis', 'COMP128', ''), ('MATH505', 'Probability and Statistics for Engineers', 'MATH440', ''), ('COMP600', 'Artificial Intelligence', 'COMP128', 'compelec'),
 ('COMP601', 'Parallel Computing', 'COMP128', 'compelec'), ('COMP602', 'Intro to Biostatistics', 'COMP128', 'compelec'), ('COMP603', 'Web Development', 'COMP128', 'compelec'),
-('COMP604', 'Mobile App Development', 'COMP128', 'compelec'), ('COMP566', 'Software Engineering', 'COMP128', ''), ('COMP655', 'Senior Project in BCOS', '',''), ('PHIL450', 'Ethics', '','')";
+('COMP604', 'Mobile App Development', 'COMP128', 'compelec'), ('COMP566', 'Software Engineering', 'COMP128', ''), ('COMP655', 'Senior Project in BCOS', '',''), ('PHIL450', 'Ethics', '',''),
+('ENVBIO', 'Environmental Biology', '', 'science1'),('ENGCHEM', 'Engineering Chemistry', '', 'science1'), ('BIOCHEM','Biochemistry', '', 'science1'),
+('ASTRO', 'Astronomy', '', 'science1'), ('COMPPHYS', 'Computational Physics', '','science1')";
             if ($conn->multi_query($sqlinCourse) === TRUE) 
             {
                 echo "New records created successfully - course<br/>";
@@ -168,6 +170,14 @@ $sqlinSemester = "INSERT IGNORE INTO semester(trackingID, reqID1, reqID2, reqID3
 		else{
 			echo"Error: " . $sqlinSemester ."<br>".$conn->error;
 		}
-
+$sqlinSection = "INSERT IGNORE INTO section(CRN, courseID, professor, location, days, time, timeEnd) VALUES ('11111', 'COMP128', 'Anwar', 'DOBS420', 'MWRF', '02:00','02:50'), ('11112', 'COMP128', 'Jones', 'WATSN001', 'MTWF', '12:00','12:50'), ('12121', 'COMP105', 'TBD', 'WATSN002', 'MTWF', '9:00','9:50'),
+('12345','ENGL100','Wentworth','BEAT412', 'TR', '02:00','03:50'), ('54321', 'MATH285','Lal','BEAT420','MWF','01:00','01:50')";
+		if($conn->multi_query($sqlinSection)===TRUE)
+		{
+			echo "New records created successfully - section<br/>";
+		}
+		else{
+			echo "Error: " . $sqlinSection . "<br>" .$conn->error;
+		}
 $conn->close();
 ?>
