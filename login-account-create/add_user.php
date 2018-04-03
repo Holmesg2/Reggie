@@ -1,6 +1,7 @@
 <?php
 require_once('config.php');
 
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $db_table = "student";
 
@@ -10,12 +11,6 @@ $school = $_POST['school'];
 $tracking = $_POST['tracking-sheet'];
 $track = $_POST['track'];
 
-if($track == 'yes'){
-	header("Location:choose_classes.html"); //redirect to choose classes
-}
-else{
-	header("Location:mainpage.html"); //redirect to main page after submit 
-}
 //header("Location:sign_in.html"); //redirect to main page after submit 
 
 $error = mysqli_connect_error();
@@ -23,7 +18,6 @@ $error = mysqli_connect_error();
 		$output = "<p>unable to connect to database</p>".$error;
 		exit($output);
 	}else{
-		echo "Connect to DB successfully <br/>";
 		//insert data
 		$query = "SELECT email from student where email='".$email."'";
 		$result = mysqli_query($conn,$query);
@@ -37,12 +31,20 @@ $error = mysqli_connect_error();
 			}else{
 				echo "Error: " . $sql . "<br/>" . mysqli_error($conn);
 			}
+			
+			if($track == 'yes'){
+				header("Location:choose_classes.html"); //redirect to choose classes
+			}
+			else{
+				header("Location:mainpage.html"); //redirect to main page after submit 
+			}
 		}
 		else{
 			$message = "An account with this email address already exists!";  //this doesnt work???
-			echo "<script type='text/javascript'>alert('$message');</script>";
-			header("Location:Create_account.html");
+			echo "<script type='text/javascript'>alert('$message');
+			window.location.href='/Reggie-master/login-account-create/Create_account.html';</script>";
 		}
 	}
 mysqli_close($conn);
+
 ?>
