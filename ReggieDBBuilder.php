@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "wit123";
-$dbname = "reggiedb";
+require_once('config.php');
 //Create db
 //SEMESTERS : FreshmanFall=0 FreshmanSpring=1 ,Sophomorefall=2, SophomoreSpring=3, JuniorFall=4, 
 //JuniorSummer=5,SeniorSpring=6,SeniorSummer=7
