@@ -1,0 +1,107 @@
+#primaryWindow {
+	border-style: solid;
+	border-width: 0px;
+	height:50%;
+	width:100%;
+}
+
+body {overflow-x: hidden;}
+
+div {
+
+	border-style: solid;
+	border-width: 0px;
+}
+
+.navb{
+	padding:0px;
+}
+
+.topper-l{
+	padding-left:15%;
+}
+
+.topper-r{
+	padding-right:12%;
+}
+.row{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+.carousel-inner > .item >img{
+  height:100%;
+  width : 100%;
+}
+
+.container{
+  height:100%;
+}
+
+.carousel-inner{
+	background-color: #b891ff;
+    overflow: auto;
+	
+  height:100%;
+  width : 100%;
+}
+
+.carousel-item{
+	
+  height : 100%;
+  width : 100%;
+}
+
+.carousel-control .icon-prev, 
+.carousel-control .icon-next {
+    font-size: 100px;
+	background-color:blue;
+}
+.carousel-control-next, .carousel-control-prev{
+	width:8%;
+}
+
+.requirements {
+	float:left;
+	width : 27%;
+	height:95%;
+	margin-left:8%;
+}
+
+.courses{
+	height:25%;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.info {
+	float:right;
+	width: 57%;
+	height: 95%;
+	margin-right: 8%;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.inside{
+	background-color: white;
+}
+
+#carouselExampleIndicators {
+  min-height : 100%;
+  max-height : 100%;
+  min-width : 100%;
+  max-width : 100%;
+  
+}
+
+ol {
+	margin-bottom:0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.navbar{
+	width:100%;
+}
