@@ -42,7 +42,7 @@ $error = mysqli_connect_error();
 		else{
 			$message = "An account with this email address already exists!";  //this doesnt work???
 			echo "<script type='text/javascript'>alert('$message');
-			window.location.href='/Reggie-master/login-account-create/Create_account.html';</script>";
+			window.location.href='Create_account.html';</script>";
 		}
 	}
 mysqli_close($conn);
