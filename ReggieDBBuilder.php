@@ -151,8 +151,7 @@ $sqlinCourse = "INSERT IGNORE INTO course(courseID, courseName, preReq, tags) VA
 ('COMP414', 'Algorithm Design and Analysis', 'COMP128', ''), ('MATH505', 'Probability and Statistics for Engineers', 'MATH440', ''), ('COMP600', 'Artificial Intelligence', 'COMP128', 'compelec'),
 ('COMP601', 'Parallel Computing', 'COMP128', 'compelec'), ('COMP602', 'Intro to Biostatistics', 'COMP128', 'compelec'), ('COMP603', 'Web Development', 'COMP128', 'compelec'),
 ('COMP604', 'Mobile App Development', 'COMP128', 'compelec'), ('COMP566', 'Software Engineering', 'COMP128', ''), ('COMP655', 'Senior Project in BCOS', '',''), ('PHIL450', 'Ethics', '',''),
-('ENVBIO', 'Environmental Biology', '', 'science1'),('ENGCHEM', 'Engineering Chemistry', '', 'science1'), ('BIOCHEM','Biochemistry', '', 'science1'),
-('ASTRO', 'Astronomy', '', 'science1'), ('COMPPHYS', 'Computational Physics', '','science1')";
+('ENVBIO', 'Environmental Biology', '', 'science1'),('ENGCHEM', 'Engineering Chemistry', '', 'science1'), ('BIOCHEM','Biochemistry', '', 'science1'),('ASTRO', 'Astronomy', '', 'science1'), ('COMPPHYS', 'Computational Physics', '','science1')";
             if ($conn->multi_query($sqlinCourse) === TRUE) 
             {
                 echo "New records created successfully - course<br/>";
