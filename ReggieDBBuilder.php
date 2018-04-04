@@ -82,8 +82,7 @@ if ($conn->query($sql_semester) === TRUE) {
 }
 //reqID format HUMN####, use course ID if requirement is a course, otherwise use ELEC for last 4 (HUMNELEC)
 $sql_req = "CREATE TABLE IF NOT EXISTS requirement (
-reqID VARCHAR(8) PRIMARY KEY NOT NULL,
-requirement VARCHAR(20)
+reqID VARCHAR(8) PRIMARY KEY NOT NULL
 )";
 if ($conn->query($sql_req) === TRUE) {
     echo "Table requirement created successfully<br/>";
@@ -95,7 +94,7 @@ $sql_course = "CREATE TABLE IF NOT EXISTS course (
 CourseID VARCHAR(8) PRIMARY KEY,
 courseName VARCHAR(30),
 preReq VARCHAR(20),
-tags VARCHAR(20)
+reqID VARCHAR(20)
 )";
 if ($conn->query($sql_course) === TRUE) {
     echo "Table course created successfully<br/>";
@@ -140,7 +139,7 @@ $sqlinReq = "INSERT IGNORE INTO requirement(reqID, requirement) VALUES ('SCIELEC
                 echo "Error: " . $sqlinReq . "<br>" . $conn->error;
             }
   
-$sqlinCourse = "INSERT IGNORE INTO course(courseID, courseName, preReq, tags) VALUES ('COMP128', 'Computer Science 1', '', ''), ('COMP105', 'Introduction to Networking and Systems', '', ''),
+$sqlinCourse = "INSERT IGNORE INTO course(courseID, courseName, preReq, reqID) VALUES ('COMP128', 'Computer Science 1', '', ''), ('COMP105', 'Introduction to Networking and Systems', '', ''),
 ('ENGL100', 'English 1', '',''), ('MATH285', 'Engineering Calculus 1', '', ''), ('COMP201', 'Computer Science 2', 'COMP128', ''), ('ENGL130', 'English II', 'ENGL100',''), 
 ('MATH295', 'Engineering Calculus II', 'MATH285', ''), ('PHYS1', 'Physics I', '', 'scielec'), ('CHEM1', 'Chemistry I', '', 'scielec'), ('BIO1', 'Biology I', '','scielec'),
 ('COMP278', 'Computer Architecture', 'COMP201', ''),('COMP285', 'Object Oriented Programming', 'COMP201', ''),  ('HUMN0001', 'Technical Writing', '','humnnelec'), ('HUMN0002', 'Media Ethics', '', 'humnnelec'), ('HUMN0003','Museums of Boston', '', 'humnelec'),
