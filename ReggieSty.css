@@ -120,3 +120,25 @@ ol {
 .navbar{
 	width:100%;
 }
+
+table, th, td{
+	border: 2px solid #333;
+	border-collapse: collapse;
+	padding: 15px;
+	font-family: 'Arial';
+	vertical-align: middle;
+}
+table {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+tr:hover {
+	background-color: #8664c3;
+}
+th {
+	background-color: #4CAF50;
+	color: white;
+}
+caption {
+	padding: 10px;
+	letter-spacing: 0.5px;
+}
