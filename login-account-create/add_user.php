@@ -10,8 +10,7 @@ $pass = $_POST['pass'];
 $school = $_POST['school'];
 $tracking = $_POST['tracking-sheet'];
 $track = $_POST['track'];
-
-//header("Location:sign_in.html"); //redirect to main page after submit 
+ 
 
 $error = mysqli_connect_error();
 	if($error != null){
@@ -36,11 +35,11 @@ $error = mysqli_connect_error();
 				header("Location:choose_classes.html"); //redirect to choose classes
 			}
 			else{
-				header("Location:mainpage.html"); //redirect to main page after submit 
+				header("Location:../mainpage.html"); //redirect to main page after submit 
 			}
 		}
 		else{
-			$message = "An account with this email address already exists!"; 
+			$message = "An account with this email address already exists!";  
 			echo "<script type='text/javascript'>alert('$message');
 			window.location.href='Create_account.html';</script>";
 		}
