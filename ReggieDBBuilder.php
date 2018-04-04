@@ -139,17 +139,17 @@ $sqlinReq = "INSERT IGNORE INTO requirement(reqID) VALUES ('SCIELEC1'), ('HUMNEL
                 echo "Error: " . $sqlinReq . "<br>" . $conn->error;
             }
   
-$sqlinCourse = "INSERT IGNORE INTO course(courseID, courseName, preReq, reqID) VALUES ('COMP128', 'Computer Science 1', '', ''), ('COMP105', 'Introduction to Networking and Systems', '', ''),
-('ENGL100', 'English 1', '',''), ('MATH285', 'Engineering Calculus 1', '', ''), ('COMP201', 'Computer Science 2', 'COMP128', ''), ('ENGL130', 'English II', 'ENGL100',''), 
-('MATH295', 'Engineering Calculus II', 'MATH285', ''), ('PHYS1', 'Physics I', '', 'SCIELEC1'), ('CHEM1', 'Chemistry I', '', 'SCIELEC1'), ('BIO1', 'Biology I', '','SCIELEC1'),
-('COMP278', 'Computer Architecture', 'COMP201', ''),('COMP285', 'Object Oriented Programming', 'COMP201', ''),  ('HUMN0001', 'Technical Writing', '','humnnelec'), ('HUMN0002', 'Media Ethics', '', 'humnnelec'), ('HUMN0003','Museums of Boston', '', 'HUMNELEC'),
+$sqlinCourse = "INSERT IGNORE INTO course(courseID, courseName, preReq, reqID) VALUES ('COMP128', 'Computer Science 1', '', 'COMP128'), ('COMP105', 'Introduction to Networking and Systems', '', 'COMP105'),
+('ENGL100', 'English 1', '','ENGL100'), ('MATH285', 'Engineering Calculus 1', '', 'MATH285'), ('COMP201', 'Computer Science 2', 'COMP128', 'COMP201'), ('ENGL130', 'English II', 'ENGL100','ENGL130'), 
+('MATH295', 'Engineering Calculus II', 'MATH285', 'MATH295'), ('PHYS1', 'Physics I', '', 'SCIELEC1'), ('CHEM1', 'Chemistry I', '', 'SCIELEC1'), ('BIO1', 'Biology I', '','SCIELEC1'),
+('COMP278', 'Computer Architecture', 'COMP201', 'COMP278'),('COMP285', 'Object Oriented Programming', 'COMP201', 'COMP285'),  ('HUMN0001', 'Technical Writing', '','HUMNELEC'), ('HUMN0002', 'Media Ethics', '', 'HUMNELEC'), ('HUMN0003','Museums of Boston', '', 'HUMNELEC'),
 ('HUMN0004', 'Contemporary Art and Theory', '', 'HUMNELEC'), ('HUMN0005', 'American Dream', '', 'HUMNELEC'), ('HUMN0006', 'Intro to Psychology', '' ,'HUMNELEC'),
 ('HUMN0007', 'Criminology', '', 'HUMNELEC'), ('HUMN0008', 'Sociology', '','HUMNELEC'), ('PHYS2','Physics II', 'PHYS1', 'SCIELEC2'), ('CHEM2', 'Chemistry II', 'CHEM1', 'SCIELEC2'), ('BIO2', 'Biology II', 'BIO1', 'SCIELEC2'),
-('COMP310', 'Data Structures', 'COMP285', ''), ('COMP355', 'Database Management', 'COMP285', ''), ('MATH410', 'Discrete Mathematics', 'MATH295', ''), ('COMP438', 'Assembly Language', 'COMP285', ''),
-('COMP501', 'Introduction to Programming Languages', 'COMP285', ''), ('MATH440', 'Linear and Vector Algebra', 'MATH410', ''), ('COMP362', 'Operating Systems', 'COMP128',''),
-('COMP414', 'Algorithm Design and Analysis', 'COMP128', ''), ('MATH505', 'Probability and Statistics for Engineers', 'MATH440', ''), ('COMP600', 'Artificial Intelligence', 'COMP128', 'COMPELEC'),
+('COMP310', 'Data Structures', 'COMP285', 'COMP310'), ('COMP355', 'Database Management', 'COMP285', 'COMP355'), ('MATH410', 'Discrete Mathematics', 'MATH295', 'MATH410'), ('COMP438', 'Assembly Language', 'COMP285', 'COMP438'),
+('COMP501', 'Introduction to Programming Languages', 'COMP285', 'COMP501'), ('MATH440', 'Linear and Vector Algebra', 'MATH410', 'MATH440'), ('COMP362', 'Operating Systems', 'COMP128','COMP362'),
+('COMP414', 'Algorithm Design and Analysis', 'COMP128', 'COMP414'), ('MATH505', 'Probability and Statistics for Engineers', 'MATH440', 'MATH505'), ('COMP600', 'Artificial Intelligence', 'COMP128', 'COMPELEC'),
 ('COMP601', 'Parallel Computing', 'COMP128', 'COMPELEC'), ('COMP602', 'Intro to Biostatistics', 'COMP128', 'COMPELEC'), ('COMP603', 'Web Development', 'COMP128', 'COMPELEC'),
-('COMP604', 'Mobile App Development', 'COMP128', 'COMPELEC'), ('COMP566', 'Software Engineering', 'COMP128', ''), ('COMP655', 'Senior Project in BCOS', '',''), ('PHIL450', 'Ethics', '',''),
+('COMP604', 'Mobile App Development', 'COMP128', 'COMPELEC'), ('COMP566', 'Software Engineering', 'COMP128', 'COMP566'), ('COMP655', 'Senior Project in BCOS', '','COMP655'), ('PHIL450', 'Ethics', '','PHIL450'),
 ('ENVBIO', 'Environmental Biology', '', 'SCIELEC3'),('ENGCHEM', 'Engineering Chemistry', '', 'SCIELEC3'), ('BIOCHEM','Biochemistry', '', 'SCIELEC3'),('ASTRO', 'Astronomy', '', 'SCIELEC3'), ('COMPPHYS', 'Computational Physics', '','SCIELEC3')";
             if ($conn->multi_query($sqlinCourse) === TRUE) 
             {
@@ -159,8 +159,8 @@ $sqlinCourse = "INSERT IGNORE INTO course(courseID, courseName, preReq, reqID) V
             {
                 echo "Error: " . $sqlinCourse . "<br>" . $conn->error;
             }
-$sqlinSemester = "INSERT IGNORE INTO semester(trackingID, reqID1, reqID2, reqID3, reqID4, semesterOrder) VALUES ('COMP1415', 'COMP128','COMP105','ENGL100','MATH285','0'), ('COMP1415', 'COMP201','ENGL130','MATH295','SCIELEC','1'),
-('COMP1415', 'COMP278','COMP285','HUMNELEC','SCIELEC','2'),('COMP1415', 'COMP310','COMP355','MATH410','HUMNELEC','3'),('COMP1415', 'COMP438','COMP501','MATH440','HUMNELEC','4'),('COMP1415', 'COMP362','COMP414','MATH505','SCIELEC','5'),('COMP1415', 'COMP566','COMPELEC','COMPELEC','HUMNELEC','6'),('COMP1415', 'COMP655','COMPELEC','COMPELEC','PHIL450','7')";
+$sqlinSemester = "INSERT IGNORE INTO semester(trackingID, reqID1, reqID2, reqID3, reqID4, semesterOrder) VALUES ('COMP1415', 'COMP128','COMP105','ENGL100','MATH285','0'), ('COMP1415', 'COMP201','ENGL130','MATH295','SCIELEC1','1'),
+('COMP1415', 'COMP278','COMP285','HUMNELEC','SCIELEC2','2'),('COMP1415', 'COMP310','COMP355','MATH410','HUMNELEC','3'),('COMP1415', 'COMP438','COMP501','MATH440','HUMNELEC','4'),('COMP1415', 'COMP362','COMP414','MATH505','SCIELEC3','5'),('COMP1415', 'COMP566','COMPELEC','COMPELEC','HUMNELEC','6'),('COMP1415', 'COMP655','COMPELEC','COMPELEC','PHIL450','7')";
 		if($conn->multi_query($sqlinSemester)===TRUE)
 		{
 			echo "New records created successfully - semester<br/>";
