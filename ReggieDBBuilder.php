@@ -129,7 +129,7 @@ $sqlinTrack = "INSERT IGNORE INTO TrackingSheet (trackingID, major, year) VALUES
                 echo "Error: " . $sqlinTrack . "<br>" . $conn->error;
             }
   
-$sqlinReq = "INSERT IGNORE INTO requirement(reqID, requirement) VALUES ('SCIELEC','scielec'), ('HUMNELEC', 'humnnelec'), ('COMPELEC', 'compelec')";
+$sqlinReq = "INSERT IGNORE INTO requirement(reqID) VALUES ('SCIELEC'), ('HUMNELEC'), ('COMPELEC')";
             if ($conn->multi_query($sqlinReq) === TRUE) 
             {
                 echo "New records created successfully - Req<br/>";
