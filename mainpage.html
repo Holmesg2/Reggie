@@ -184,6 +184,34 @@
 		</table>
 	</div>
 	<div id="Audit" style="display:none">
+		<div class="row">
+			<div class="col-10" id="auditMain">
+				<?php
+					$comp=0;
+					$todo=0;
+					$sql='SELECT * FROM progress';
+					$completedCourses = mysql_query($sql,$conn );
+					$sql2='SELECT * FROM courses c WHERE NOT EXISTS(SELECT courseID FROM progress p WHERE d.courseID = p.courseID)';
+					$toDoCourses = mysql_query($sql2,$conn);
+					
+				?>
+				<p>Audit<br /></p>
+				<div>
+					<p>Overall<br /></p>
+					<p>Courses Completed: </p>
+					<p>Courses Remaining: </p>
+				</div>
+				<div>
+					<p>Courses Completed List</p>
+				</div>
+				<div>
+					<p>Courses Remaining List</p>
+				</div>
+			</div>
+			<div class="col-2" id="auditSide">
+			
+			</div>
+		</div>
 	</div>
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -129,7 +129,7 @@ $sqlinTrack = "INSERT IGNORE INTO TrackingSheet (trackingID, major, year) VALUES
                 echo "Error: " . $sqlinTrack . "<br>" . $conn->error;
             }
   
-$sqlinReq = "INSERT IGNORE INTO requirement(reqID) VALUES ('SCIELEC'), ('HUMNELEC'), ('COMPELEC')";
+$sqlinReq = "INSERT IGNORE INTO requirement(reqID) VALUES ('SCIELEC1'), ('HUMNELEC'), ('COMPELEC'), ('SCIELEC2'), ('SCIELEC3')";
             if ($conn->multi_query($sqlinReq) === TRUE) 
             {
                 echo "New records created successfully - Req<br/>";
@@ -141,16 +141,16 @@ $sqlinReq = "INSERT IGNORE INTO requirement(reqID) VALUES ('SCIELEC'), ('HUMNELE
   
 $sqlinCourse = "INSERT IGNORE INTO course(courseID, courseName, preReq, reqID) VALUES ('COMP128', 'Computer Science 1', '', ''), ('COMP105', 'Introduction to Networking and Systems', '', ''),
 ('ENGL100', 'English 1', '',''), ('MATH285', 'Engineering Calculus 1', '', ''), ('COMP201', 'Computer Science 2', 'COMP128', ''), ('ENGL130', 'English II', 'ENGL100',''), 
-('MATH295', 'Engineering Calculus II', 'MATH285', ''), ('PHYS1', 'Physics I', '', 'scielec'), ('CHEM1', 'Chemistry I', '', 'scielec'), ('BIO1', 'Biology I', '','scielec'),
-('COMP278', 'Computer Architecture', 'COMP201', ''),('COMP285', 'Object Oriented Programming', 'COMP201', ''),  ('HUMN0001', 'Technical Writing', '','humnnelec'), ('HUMN0002', 'Media Ethics', '', 'humnnelec'), ('HUMN0003','Museums of Boston', '', 'humnelec'),
-('HUMN0004', 'Contemporary Art and Theory', '', 'humnelec'), ('HUMN0005', 'American Dream', '', 'humnelec'), ('HUMN0006', 'Intro to Psychology', '' ,'humnelec'),
-('HUMN0007', 'Criminology', '', 'humnelec'), ('HUMN0008', 'Sociology', '','humnelec'), ('PHYS2','Physics II', 'PHYS1', 'scielec'), ('CHEM2', 'Chemistry II', 'CHEM1', 'scielec'), ('BIO2', 'Biology II', 'BIO1', 'scielec'),
+('MATH295', 'Engineering Calculus II', 'MATH285', ''), ('PHYS1', 'Physics I', '', 'SCIELEC1'), ('CHEM1', 'Chemistry I', '', 'SCIELEC1'), ('BIO1', 'Biology I', '','SCIELEC1'),
+('COMP278', 'Computer Architecture', 'COMP201', ''),('COMP285', 'Object Oriented Programming', 'COMP201', ''),  ('HUMN0001', 'Technical Writing', '','humnnelec'), ('HUMN0002', 'Media Ethics', '', 'humnnelec'), ('HUMN0003','Museums of Boston', '', 'HUMNELEC'),
+('HUMN0004', 'Contemporary Art and Theory', '', 'HUMNELEC'), ('HUMN0005', 'American Dream', '', 'HUMNELEC'), ('HUMN0006', 'Intro to Psychology', '' ,'HUMNELEC'),
+('HUMN0007', 'Criminology', '', 'HUMNELEC'), ('HUMN0008', 'Sociology', '','HUMNELEC'), ('PHYS2','Physics II', 'PHYS1', 'SCIELEC2'), ('CHEM2', 'Chemistry II', 'CHEM1', 'SCIELEC2'), ('BIO2', 'Biology II', 'BIO1', 'SCIELEC2'),
 ('COMP310', 'Data Structures', 'COMP285', ''), ('COMP355', 'Database Management', 'COMP285', ''), ('MATH410', 'Discrete Mathematics', 'MATH295', ''), ('COMP438', 'Assembly Language', 'COMP285', ''),
 ('COMP501', 'Introduction to Programming Languages', 'COMP285', ''), ('MATH440', 'Linear and Vector Algebra', 'MATH410', ''), ('COMP362', 'Operating Systems', 'COMP128',''),
-('COMP414', 'Algorithm Design and Analysis', 'COMP128', ''), ('MATH505', 'Probability and Statistics for Engineers', 'MATH440', ''), ('COMP600', 'Artificial Intelligence', 'COMP128', 'compelec'),
-('COMP601', 'Parallel Computing', 'COMP128', 'compelec'), ('COMP602', 'Intro to Biostatistics', 'COMP128', 'compelec'), ('COMP603', 'Web Development', 'COMP128', 'compelec'),
-('COMP604', 'Mobile App Development', 'COMP128', 'compelec'), ('COMP566', 'Software Engineering', 'COMP128', ''), ('COMP655', 'Senior Project in BCOS', '',''), ('PHIL450', 'Ethics', '',''),
-('ENVBIO', 'Environmental Biology', '', 'science1'),('ENGCHEM', 'Engineering Chemistry', '', 'science1'), ('BIOCHEM','Biochemistry', '', 'science1'),('ASTRO', 'Astronomy', '', 'science1'), ('COMPPHYS', 'Computational Physics', '','science1')";
+('COMP414', 'Algorithm Design and Analysis', 'COMP128', ''), ('MATH505', 'Probability and Statistics for Engineers', 'MATH440', ''), ('COMP600', 'Artificial Intelligence', 'COMP128', 'COMPELEC'),
+('COMP601', 'Parallel Computing', 'COMP128', 'COMPELEC'), ('COMP602', 'Intro to Biostatistics', 'COMP128', 'COMPELEC'), ('COMP603', 'Web Development', 'COMP128', 'COMPELEC'),
+('COMP604', 'Mobile App Development', 'COMP128', 'COMPELEC'), ('COMP566', 'Software Engineering', 'COMP128', ''), ('COMP655', 'Senior Project in BCOS', '',''), ('PHIL450', 'Ethics', '',''),
+('ENVBIO', 'Environmental Biology', '', 'SCIELEC3'),('ENGCHEM', 'Engineering Chemistry', '', 'SCIELEC3'), ('BIOCHEM','Biochemistry', '', 'SCIELEC3'),('ASTRO', 'Astronomy', '', 'SCIELEC3'), ('COMPPHYS', 'Computational Physics', '','SCIELEC3')";
             if ($conn->multi_query($sqlinCourse) === TRUE) 
             {
                 echo "New records created successfully - course<br/>";
