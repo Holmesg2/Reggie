@@ -32,7 +32,7 @@ $error = mysqli_connect_error();
 			$passArr2 = mysqli_fetch_row($getStored);
 			
 			if($pass == $passArr2[0]){ //check for matching password
-				header("Location:../mainpage.html");
+				header("Location:../mainpage.php");
 			}
 			else{
 			$message = "Incorrect login info, try again.";  
