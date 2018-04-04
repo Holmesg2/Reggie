@@ -6,7 +6,6 @@
 }
 
 body {
-	overflow: hidden;
 	background-color: #8664c3;}
 
 div {
@@ -134,7 +133,10 @@ ol {
 .navbar{
 	width:100%;
 }
-
+#Audit{
+	font-size:2em;
+	color:white;
+}
 table, th, td{
 	border: 2px solid #333;
 	border-collapse: collapse;
@@ -147,10 +149,14 @@ table {
 }
 tr:hover {
 	background-color: #b891ff;
+	color:white;
 }
 th {
 	background-color: #d1ffcf;
 	color: white;
+}
+td{
+	color:white;
 }
 caption {
 	padding: 10px;

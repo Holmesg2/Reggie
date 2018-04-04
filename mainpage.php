@@ -10,7 +10,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<LINK href="ReggieSty.css" rel="stylesheet" type="text/css">
 	</head>
-<body>
+<body style='overflow:auto'>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 <div class="container" id="primaryWindow">
@@ -283,36 +283,51 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 		<div class="row">
 			<div class="col">
 
-				<p>Audit<br /></p>
-				<div>
-					<p>Overall<br /></p>
-					<div>
-						<p>Courses Completed List</p>
-					</div>
-					<div>
+				<div class="auditText">
+					<p>Courses Completed</p>
+				</div>
+					<table>
+					<tr>
+						<th>Requirement</th>
+						<th>CourseID</th>
+						<th>SemesterTaken</th>
+					</tr>
 					<?php
 						$queryxx = "SELECT * from progress";
 						$resultxx = mysqli_query($conn,$queryxx);
 						$coursesPassed = 0;
 							while($rowxx=mysqli_fetch_array($resultxx)){
 								$coursesPassed=$coursesPassed+1;
-								echo" <div class='row'>".$rowxx['reqID']."</div>";
+								echo" <tr>
+								<td>".$rowxx['reqID']."</td>
+								<td>".$rowxx['courseID']."</td>
+								<td>".$rowxx['semtaken']."</td>
+								</tr>";
 							}
-							echo"<div class='row'>Courses Completed: ".$coursesPassed."</div>";
+							echo"</table><div class='row'>Courses Completed: ".$coursesPassed."</div>";
 					?>
-					</div>
-					<div>
+					<div class = "auditText">
 						<p></br>Courses Remaining List</p>
 					</div>
+					<table>
+					<tr>
+						<th>Requirement</th>
+						<th>CourseID</th>
+						<th>Course Name</th>
+					</tr>
 					<?php
-						$queryx = "SELECT * FROM course WHERE reqID NOT IN(SELECT courseID FROM progress)";
+						$queryx = "SELECT * FROM course WHERE reqID NOT IN(SELECT courseID FROM progress) GROUP BY reqID";
 						$resultx=mysqli_query($conn,$queryx);
 						$coursesRemaining=0;
 						while($rowx=mysqli_fetch_array($resultx)){
 							$coursesRemaining=$coursesRemaining+1;
-							echo"<div class='row'>".$rowx['reqID']."</div>";
-						}
-						echo "<div class='row'>Courses Remaining: ".$coursesRemaining."</div>";
+								echo" <tr>
+								<td>".$rowx['reqID']."</td>
+								<td>".$rowx['CourseID']."</td>
+								<td>".$rowx['courseName']."</td>
+								</tr>";
+							}
+							echo"</table><div class='row'>Courses Remaining: ".$coursesRemaining."</div>";
 					?>
 			</div>
 		</div>
