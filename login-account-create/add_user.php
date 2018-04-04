@@ -40,7 +40,7 @@ $error = mysqli_connect_error();
 			}
 		}
 		else{
-			$message = "An account with this email address already exists!";  //this doesnt work???
+			$message = "An account with this email address already exists!"; 
 			echo "<script type='text/javascript'>alert('$message');
 			window.location.href='Create_account.html';</script>";
 		}
