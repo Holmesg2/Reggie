@@ -214,7 +214,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 						<p></br>Courses Remaining List</p>
 					</div>
 					<?php
-						$queryx = "SELECT * FROM course WHERE reqID NOT IN(SELECT courseID FROM progress)";
+						$queryx = "SELECT * FROM course WHERE reqID NOT IN(SELECT reqID FROM progress) GROUP BY reqID";
 						$resultx=mysqli_query($conn,$queryx);
 						$coursesRemaining=0;
 						while($rowx=mysqli_fetch_array($resultx)){
