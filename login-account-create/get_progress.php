@@ -11,7 +11,7 @@ require_once('config.php');
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $db_table = "progress";
 
-header("Location:../mainpage.html"); //redirect to main page after submit 
+header("Location:../mainpage.php"); //redirect to main page after submit 
 
 $error = mysqli_connect_error();
 	if($error != null){

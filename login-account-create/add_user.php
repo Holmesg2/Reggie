@@ -42,7 +42,7 @@ $error = mysqli_connect_error();
 				header("Location:choose_classes.html"); //redirect to choose classes
 			}
 			else{
-				header("Location:../mainpage.html"); //redirect to main page after submit 
+				header("Location:../mainpage.php"); //redirect to main page after submit 
 			}
 		}
 		else{
