@@ -6,7 +6,9 @@
 }
 
 body {
-	background-color: #8664c3;}
+	background-color: #8664c3;
+	overflow:auto;
+	}
 
 div {
 
