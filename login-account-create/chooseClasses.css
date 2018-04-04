@@ -29,7 +29,7 @@ a{
 .btn-primary {
 	color: #000;
 	background-color: #e0e0e0;
-	border-color: #ff00f7;
+	border-color: #05017b;
 }
 
 .radio-toolbar input[type="checkbox"]:checked+label {
@@ -46,11 +46,13 @@ a{
     color: #000;
     background-color: #e0e0e0;
     background-clip: padding-box;
-    border: 1px solid #ff00f7;
+    border: 1px solid #05017b;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 	margin-bottom:8px;
 }
+
+
 /* .btn:checked+ label{
 	background-color: #007bff;
 }
