@@ -104,11 +104,11 @@ if ($conn->query($sql_course) === TRUE) {
 //need to check how many numbers in a CRN but you get the idea
 //DAYS MTWRF(Mon,Tues,Wed,Thurs,Fri
 $sql_section = "CREATE TABLE IF NOT EXISTS section (
-CRN VARCHAR (12) PRIMARY KEY,
+CRN INT (5) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 courseID VARCHAR(8),
 professor VARCHAR(36),
 location VARCHAR(12),
-days VARCHAR(5),
+days VARCHAR(9),
 time TIME,
 timeEnd TIME,
 capacity INT(3) UNSIGNED,
@@ -118,6 +118,19 @@ if ($conn->query($sql_section) === TRUE) {
     echo "Table section created successfully<br/>";
 } else {
     echo "Error creating section table: " . $conn->error."<br/>";
+}
+$sql_schedule="CREATE TABLE IF NOT EXISTS schedule(
+userID INT(6) NOT NULL,
+CRN1 INT(5),
+CRN2 INT(5),
+CRN3 INT(5),
+CRN4 INT(5),
+CRN5 INT(5)
+)";
+if ($conn->query($sql_schedule) === TRUE){
+	echo "Table schedule created successfully<br/>";
+}else{
+	echo "Error creating schedule table: " .$conn->error."<br/>";
 }
 $sqlinTrack = "INSERT IGNORE INTO TrackingSheet (trackingID, major, year) VALUES ('COMP1415', 'Computer Science', '2014-2015')";
             if ($conn->multi_query($sqlinTrack) === TRUE) 
@@ -168,18 +181,18 @@ $sqlinSemester = "INSERT IGNORE INTO semester(trackingID, reqID1, reqID2, reqID3
 		else{
 			echo"Error: " . $sqlinSemester ."<br>".$conn->error;
 		}
-$sqlinSection = "INSERT IGNORE INTO section(CRN, courseID, professor, location, days, time, timeEnd) VALUES ('11111', 'COMP128', 'Anwar', 'DOBS420', 'MWRF', '02:00','02:50'), ('11112', 'COMP128', 'Jones', 'WATSN001', 'MTWF', '12:00','12:50'), ('12121', 'COMP105', 'TBD', 'WATSN002', 'MTWF', '9:00','9:50'),
-('12345','ENGL100','Wentworth','BEAT412', 'TR', '02:00','03:50'), ('54321', 'MATH285','Lal','BEAT420','MWF','01:00','01:50'), ('00000', 'COMP201', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00001', 'ENGL130', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), 
-('00002', 'MATH295', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00003', 'PHYS1', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00004', 'CHEM1', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00005', 'BIO1', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), 
-('00006', 'COMP278', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00007', 'COMP285', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00008', 'HUMN0001', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00009', 'HUMN0002', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), 
-('10000', 'HUMN0003', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('20000', 'HUMN0004', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('30000', 'HUMN0005', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('40000', 'HUMN0006', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'),
-('01000', 'HUMN0007', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('02000', 'HUMN0008', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('03000', 'PHYS2', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('04000', 'CHEM2', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), 
-('05000', 'BIO2', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('06000', 'COMP310', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('07000', 'COMP355', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('08000', 'MATH410', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), 
-('09000', 'COMP438', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00100', 'COMP501', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00200', 'MATH440', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00300', 'COMP362', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'),
-('00400', 'COMP414', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00500', 'MATH505', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00600', 'COMP600', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00700', 'COMP601', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), 
-('00800', 'COMP602', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00900', 'COMP603', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00010', 'COMP604', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00020', 'COMP566', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'),
-('00030', 'COMP655', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00040', 'PHIL450', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00050', 'ENVBIO', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00060', 'ENGCHEM', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), 
-('00070', 'BIOCHEM', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00080', 'ASTRO', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00'), ('00090', 'COMPPHYS', 'PLACEHOLDER', 'TEST', 'MWRF', '00:00','00:00')    ";
+$sqlinSection = "INSERT IGNORE INTO section(courseID, professor, location, days, time, timeEnd) VALUES ('COMP128', 'Anwar', 'DOBS420', 'M,W,R,F', '02:00','02:50'), ('COMP128', 'Jones', 'WATSN001', 'M,T,W,F', '12:00','12:50'), ('COMP105', 'TBD', 'WATSN002', 'M,T,W,F', '9:00','9:50'),
+('ENGL100','Wentworth','BEAT412', 'TR', '02:00','03:50'), ('MATH285','Lal','BEAT420','MWF','01:00','01:50'), ('COMP201', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('ENGL130', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), 
+('MATH295', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('PHYS1', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('CHEM1', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('BIO1', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), 
+('COMP278', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP285', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('HUMN0001', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('HUMN0002', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), 
+('HUMN0003', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('HUMN0004', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('HUMN0005', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('HUMN0006', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'),
+('HUMN0007', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('HUMN0008', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('PHYS2', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('CHEM2', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), 
+('BIO2', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP310', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP355', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('MATH410', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), 
+('COMP438', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP501', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('MATH440', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP362', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'),
+('COMP414', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('MATH505', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP600', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP601', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), 
+('COMP602', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP603', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP604', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMP566', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'),
+('COMP655', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('PHIL450', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('ENVBIO', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('ENGCHEM', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), 
+('BIOCHEM', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('ASTRO', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00'), ('COMPPHYS', 'PLACEHOLDER', 'TEST', 'M,W,R,F', '00:00','00:00')    ";
 		if($conn->multi_query($sqlinSection)===TRUE)
 		{
 			echo "New records created successfully - section<br/>";
