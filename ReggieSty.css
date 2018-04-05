@@ -3,11 +3,11 @@
 	border-width: 0px;
 	height:50%;
 	width:100%;
-	background-color: #7ede79;
+	background-color: #009100;
 }
 
 body {
-	background-color: #7ede79;
+	background-color: #009100;
 	overflow:auto;
 }
 
@@ -28,7 +28,7 @@ div {
 .topper-l {
 	padding-left:15%;
 	font-size:25px;
-	font-family:"Courier New", monospace;
+	font-family:Oswald, monospace;
 	color:black;
 	font-weight:bold;
 }
@@ -36,7 +36,7 @@ div {
 .topper-r {
 	padding-right:12%;
 	font-size:25px;
-	font-family:"Courier New", monospace;
+	font-family:Oswald, monospace;
 	color:black;
 	font-weight:bold;
 }
@@ -55,11 +55,11 @@ div {
 	text-align: center;
 	vertical-align: middle;
     line-height: 60px;
-	background-color: #7ede79
+	background-color: #009100
 }
 
 .carousel-inner {
-	background-color: #7ede79;
+	background-color: #009100;
 	height:100%;
 	width : 100%;
 }
@@ -118,7 +118,8 @@ div {
 	border-right: 0px;
 	border-top: 0;
 	border-left: 0px;
-	font: 30px/32px sans-serif;
+	/*font: 30px/32px sans-serif;*/
+	font-family: Oswald;
 }
 
 ol {
@@ -142,7 +143,7 @@ table, th, td{
 	border: 1px solid #333;
 	border-collapse: collapse;
 	padding: 15px;
-	font-family: 'Arial';
+	font-family: Oswald;
 	vertical-align: middle;
 }
 
