@@ -44,11 +44,12 @@ $UID=mysqli_fetch_array($UIDQ);
 			</div>
 		</nav>
 	</div>
+	<div id="Course">
 	<div class="row" >
 		<h1 id="sem">
 		</h1>
 	</div>
-	<div id="Course">
+
 	<div class="row">
 		<div class="col topper-l">Course Names
 		</div>
