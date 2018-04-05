@@ -3,7 +3,6 @@
 	border-width: 0px;
 	height:50%;
 	width:100%;
-	background-color: #009100;
 }
 
 body {
@@ -35,6 +34,12 @@ div {
 
 .nav {
 	background-color: white;
+}
+
+#courseLabel{
+	font-family: Oswald;
+	font: Oswald;
+	border-width: 1px;
 }
 
 .topper-l {
@@ -126,7 +131,7 @@ div {
 
 #semesterHead {
 	border-style: none;
-	border-width: 0px;
+	border-width: 1px;
 	border-right: 0px;
 	border-top: 0;
 	border-left: 0px;
