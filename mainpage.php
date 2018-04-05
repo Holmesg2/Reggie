@@ -8,8 +8,8 @@ if (!isset($_SESSION["email"]) || empty($_SESSION["email"])) {
 require_once('config.php');
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
- echo "<div style='color:black;'>"."Logged in as:" . htmlspecialchars($_SESSION["email"])."</div>";
-
+ echo "<div id='top-left'>"."Logged in as:" . htmlspecialchars($_SESSION["email"])."</div>";
+ echo "<form class='form-classes' method='POST' action='logout.php'><button id='top-right' type='submit' class='btn btn-default'>Log out</button></form>";
 
 $queryUID = "SELECT userID FROM student WHERE email= '".$_SESSION["email"]."'";
 $UIDQ = mysqli_query($conn,$queryUID);

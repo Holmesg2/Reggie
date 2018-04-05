@@ -16,6 +16,15 @@ div {
 	border-width: 1px;
 }
 
+#top-left{
+	color: black;
+	float: left;
+}
+
+#top-right{
+	color: black;
+	float: right;
+}
 .navb{
 	padding:0px;
 	background-color:white;
