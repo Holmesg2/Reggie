@@ -16,7 +16,7 @@ div {
 	border-width: 0px;
 }
 
-<<<<<<< HEAD
+
 #top-left{
 	color: black;
 	float: left;
@@ -26,10 +26,9 @@ div {
 	color: black;
 	float: right;
 }
-.navb{
-=======
+
 .navb {
->>>>>>> 44e950f7b8521d8d831f71a392b5317540b01f78
+
 	padding:0px;
 	background-color: white;
 }
