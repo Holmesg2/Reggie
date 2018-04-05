@@ -10,7 +10,7 @@ if (!isset($_SESSION["email"]) || empty($_SESSION["email"])) {
  $conn = mysqli_connect($servername, $username, $password, $dbname);
 echo "Logged in as: " . htmlspecialchars($_SESSION["email"]);
 
-$queryUID = "SELECT userID FROM student WHERE email= '".$_SESSION["email"];
+$queryUID = "SELECT userID FROM student WHERE email= '".$_SESSION["email"]."'";
 $UIDQ = mysqli_query($conn,$queryUID);
 if (!$UIDQ) {
     echo "Error getting UID: ", mysqli_error($conn);
