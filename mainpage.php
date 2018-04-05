@@ -301,7 +301,7 @@ $UID=mysqli_fetch_array($UIDQ);
 				<div class="auditText">
 					<p>Courses Completed</p>
 				</div>
-					<table>
+					<table align="center">
 					<tr>
 						<th>Requirement</th>
 						<th>CourseID</th>
@@ -341,7 +341,7 @@ $UID=mysqli_fetch_array($UIDQ);
 					<div class = "auditText">
 						<p></br>Courses Remaining List</p>
 					</div>
-					<table>
+					<table align="center">
 					<tr>
 						<th>Requirement</th>
 						<th>CourseID</th>

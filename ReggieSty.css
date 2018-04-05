@@ -1,57 +1,56 @@
 #primaryWindow {
-	border-style: solid;
+	border-style: none;
 	border-width: 0px;
 	height:50%;
 	width:100%;
+	background-color: #7ede79;
 }
 
 body {
-	background-color: white;
+	background-color: #7ede79;
 	overflow:auto;
-	}
+}
 
 div {
-
-	border-style: solid;
-	border-width: 1px;
+	border-style: none;
+	border-width: 0px;
 }
 
-.navb{
+.navb {
 	padding:0px;
-	background-color:white;
-}
-.nav{
-	background-color:white;
+	background-color: white;
 }
 
+.nav {
+	background-color: white;
+}
 
-.topper-l{
+.topper-l {
 	padding-left:15%;
 	font-size:25px;
 	font-family:"Courier New", monospace;
 	color:black;
-
 	font-weight:bold;
 }
  
-.topper-r{
+.topper-r {
 	padding-right:12%;
 	font-size:25px;
 	font-family:"Courier New", monospace;
 	color:black;
-
 	font-weight:bold;
 }
-.row{
+
+.row {
     margin-right: 0px;
     margin-left: 0px;
 }
 
-.container{
-  height:100%;
+.container {
+	height:100%;
 }
 
-#sem{
+#sem {
 	width:100%;
 	text-align: center;
 	vertical-align: middle;
@@ -59,17 +58,15 @@ div {
 	background-color: #7ede79
 }
 
-.carousel-inner{
-	background-color: grey;
-	
-  height:100%;
-  width : 100%;
+.carousel-inner {
+	background-color: #7ede79;
+	height:100%;
+	width : 100%;
 }
 
-.carousel-item{
-	
-  height : 95%;
-  width : 100%;
+.carousel-item {
+	height : 95%;
+	width : 100%;
 }
 
 .carousel-control .icon-prev, 
@@ -77,19 +74,20 @@ div {
     font-size: 100px;
 	background-color:blue;
 }
-.carousel-control-next, .carousel-control-prev{
+
+.carousel-control-next, .carousel-control-prev {
 	width:8%;
 }
 
 .requirements {
 	float:left;
-    	vertical-align: top;
+    vertical-align: top;
 	width : 27%;
 	height:95%;
 	margin-left:8%;
 }
 
-.courses{
+.courses {
 	height:25%;
 }
 
@@ -99,31 +97,30 @@ div {
 	width: 57%;
 	height: 95%;
 	margin-right: 8%;
-	border-style: solid;
-	border-width: 1px;
+	border-style: none;
+	border-width: 0px;
 }
 
-.inside{
+.inside {
 	background-color: white;
 }
 
 #carouselExampleIndicators {
-  min-height : 100%;
-  max-height : 100%;
-  min-width : 100%;
-  max-width : 100%;
-  
+	min-height : 100%;
+	max-height : 100%;
+	min-width : 100%;
+	max-width : 100%;
 }
 
-#semesterHead{
-	border-style: solid;
-	border-width: 1px;
+#semesterHead {
+	border-style: none;
+	border-width: 0px;
 	border-right: 0px;
 	border-top: 0;
 	border-left: 0px;
-	
 	font: 30px/32px sans-serif;
 }
+
 ol {
 	margin-bottom:0;
 }
@@ -132,31 +129,38 @@ ol {
 	box-sizing: border-box;
 }
 
-.navbar{
+.navbar {
 	width:100%;
 }
-#Audit{
-	font-size:2em;
 
+#Audit {
+	font-size:2em;
+	text-align: center;
 }
+
 table, th, td{
-	border: 2px solid #333;
+	border: 1px solid #333;
 	border-collapse: collapse;
 	padding: 15px;
 	font-family: 'Arial';
 	vertical-align: middle;
 }
+
 table {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-tr{
+
+tr {
 	background-color: white;
 	color=black;
 }
+
 th {
 }
+
 td{
 }
+
 caption {
 	padding: 10px;
 	letter-spacing: 0.5px;
