@@ -187,7 +187,7 @@ $UID=mysqli_fetch_array($UIDQ);
 	</div>
 	</div>
 	<div id="Schedule" style="display:none">
-			<table>
+			<table align="center">
 			<tr>
 				<th>Reggie!</th>
 				<th>Monday</th>
@@ -237,7 +237,7 @@ $UID=mysqli_fetch_array($UIDQ);
 				<td>&nbsp;</td>
 			</tr>
 			<tr>
-				<td>&nbsp;</td>
+				<td>1:00 - 2:00</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>
