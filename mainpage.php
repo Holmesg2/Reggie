@@ -1,14 +1,17 @@
 <?php
+
 session_start();
 //If session variable is not set it will redirect to login page
 if (!isset($_SESSION["email"]) || empty($_SESSION["email"])) {
     header("location: login-account-create/sign_in.html");
     exit;
 } 
+
 require_once('config.php');
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
- echo "<div id='top-left'>"."Logged in as:" . htmlspecialchars($_SESSION["email"])."</div>";
+
+echo "<div id='top-left'>"."Logged in as:" . htmlspecialchars($_SESSION["email"])."</div>";
  echo "<form class='form-classes' method='POST' action='logout.php'><button id='top-right' type='submit' class='btn btn-default'>Log out</button></form>";
 
 $queryUID = "SELECT userID FROM student WHERE email= '".$_SESSION["email"]."'";
@@ -18,12 +21,13 @@ if (!$UIDQ) {
     exit;
 }
 $UID=mysqli_fetch_array($UIDQ);
- ?>
+?>
+
 <html>
 	<head>
-	
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link href="ReggieSty.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
+		<LINK href="ReggieSty.css" rel="stylesheet" type="text/css">
 	</head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
@@ -32,35 +36,35 @@ $UID=mysqli_fetch_array($UIDQ);
 	<div class="row" id="nav">
 		<nav class="navbar navbar-light bg-light">
 			<div class="col navb">
-				<button class="btn-block" onclick="schedule()" type="button">Schedule</button>
+				<button class="btn-block btn-primary" onclick="schedule()" type="button">Schedule</button>
 			</div>
 			<div class="col navb">
 				
-				<button class="btn-block" onclick="browseCourses()" type="button">Browse Courses</button>
+				<button class="btn-block btn-primary" onclick="browseCourses()" type="button">Browse Courses</button>
 			</div>
 			<div class="col navb">
 				
-				<button class="btn-block" onclick="audit()" type="button">Audit</button>
+				<button class="btn-block btn-primary" onclick="audit()" type="button">Audit</button>
 			</div>
 		</nav>
 	</div>
-	<div id="Course">
 	<div class="row" >
 		<h1 id="sem">
 		</h1>
 	</div>
-
+	<div id="Course">
 	<div class="row">
-		<div class="col topper-l">Course Names
+		<div class="col topper-l" id="courseLabel">
+			<label>Course Names</label>
 		</div>
-		<div class="col topper-r" id="">
-			Course Info
+		<div class="col topper-r" id="courseLabel">
+			<label>Course Info</label>
 		</div>
 	</div>
 	<div class="container-fluid wrapper">
 	<div class="row">
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-interval="false">
-			<ol class="carousel-indicators">
+			<ol class="carousel-indicators" id="indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
 				<?php
@@ -73,9 +77,6 @@ $UID=mysqli_fetch_array($UIDQ);
 				$allCourses[] = $row['reqID3'];
 				$allCourses[] = $row['reqID4'];
 			}
-				for ($i=2;$i<((count($allCourses)/4)-3);$i++){
-					echo "<li data-target='#carouselExampleIndicators' data-slide-to='$i'></li>";
-				}
 				?>
 			</ol>
 			<div class="carousel-inner">	
@@ -97,7 +98,7 @@ $UID=mysqli_fetch_array($UIDQ);
 						while ($row = mysqli_fetch_array($result)) {
 							
 							echo "	<div class='row' style='height:20%;'>
-										<button class='btn-block' onclick='updateSeminfo(1,'$seminfo')' type='button'>".$row['courseID']."</button>
+										<button class='btn-block btn-primary' onclick='updateSeminfo(1,'$seminfo')' type='button'>".$row['courseID']."</button>
 									</div>";
 						}?>
 							</div>
@@ -143,6 +144,7 @@ $UID=mysqli_fetch_array($UIDQ);
 			$allCourses = array_merge(array_diff($allCourses, array('donetoo')));
 			$activeCount=0;
 			$saveIndex=0;
+			$indinum=9;
 			for ($i=0;$i<(count($allCourses)/4);$i++) {
 				$activeCount++;
 				$activeStr=" active";
@@ -154,12 +156,12 @@ $UID=mysqli_fetch_array($UIDQ);
 						<div class='col navb'>";
 							for ($j=0;$j<4;$j++){
 								$num=$j+$saveIndex;
-								if ($allCourses[($num)] == null){
+								if ($num >= count($allCourses)){
 									break;
 								}
 								else{
 									echo "<div class='row courses'>
-										<button class='btn-block' type='button'>".$allCourses[($j+$saveIndex)]."</button>
+										<button class='btn-block btn-primary' type='button'>".$allCourses[($j+$saveIndex)]."</button>
 									</div>";
 								}
 							}
@@ -172,6 +174,20 @@ $UID=mysqli_fetch_array($UIDQ);
 						</div>
 					</div>
 				</div>";
+				if($activeCount >1){
+				echo "<script type='text/javascript'>updateIndicators($indinum);
+				function updateIndicators(num){
+					var newnode = document.createElement('LI');
+					newnode.setAttribute('data-target','#carouselExampleIndicators');
+					newnode.setAttribute('onclick','updateSemester()');
+					newnode.id='indicators$i';
+					newnode.setAttribute('data-slide-to','".($i+1)."');
+
+					document.getElementById('indicators').appendChild(newnode);
+				}</script>";
+				}
+				
+				$indinum--;
 			}
 			?>
 			</div>
@@ -295,9 +311,10 @@ $UID=mysqli_fetch_array($UIDQ);
 			</tr>
 		</table>
 	</div>
-	<div id="Audit" style="display:none">
+			<div id="Audit" style="display:none">
 		<div class="row">
 			<div class="col">
+			
 
 				<div class="auditText">
 					<p>Courses Completed</p>
