@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION["email"] = $_POST['email'];
 
 // If session variable is not set it will redirect to login page
 if (!isset($_SESSION["email"]) || empty($_SESSION["email"])) {
@@ -32,6 +31,7 @@ $error = mysqli_connect_error();
 			$passArr2 = mysqli_fetch_row($getStored);
 			
 			if($pass == $passArr2[0]){ //check for matching password
+				$_SESSION["email"] = $_POST['email'];
 				header("Location:../mainpage.php");
 			}
 			else{
