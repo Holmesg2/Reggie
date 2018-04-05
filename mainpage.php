@@ -313,10 +313,27 @@ $UID=mysqli_fetch_array($UIDQ);
 						$coursesPassed = 0;
 							while($rowxx=mysqli_fetch_array($resultxx)){
 								$coursesPassed=$coursesPassed+1;
+								if($rowxx['semtaken'] == 0){
+									$semesterName = "Freshman Fall";
+								}else if($rowxx['semtaken'] == 1){
+									$semesterName = "Freshman Spring";
+								}else if($rowxx['semtaken'] == 2){
+									$semesterName = "Sophomore Fall";
+								}elseif($rowxx['semtaken'] == 3){
+									$semesterName = "Sophomore Spring";
+								}else if($rowxx['semtaken'] == 4){
+									$semesterName = "Junior Fall";
+								}else if($rowxx['semtaken'] == 5){
+									$semesterName = "Junior Summer";
+								}else if($rowxx['semtaken'] == 6){
+									$semesterName = "Senior Spring";
+								}else if($rowxx['semtaken'] == 7){
+									$semesterName = "Junior Summer";
+								}
 								echo" <tr>
 								<td>".$rowxx['reqID']."</td>
 								<td>".$rowxx['courseID']."</td>
-								<td>".$rowxx['semtaken']."</td>
+								<td>".$semesterName."</td>
 								</tr>";
 							}
 							echo"</table><div class='row'>Courses Completed: ".$coursesPassed."</div>";
