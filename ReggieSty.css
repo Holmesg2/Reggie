@@ -6,14 +6,14 @@
 }
 
 body {
-	background-color: #8664c3;
+	background-color: white;
 	overflow:auto;
 	}
 
 div {
 
 	border-style: solid;
-	border-width: 0px;
+	border-width: 1px;
 }
 
 .navb{
@@ -60,7 +60,7 @@ div {
 }
 
 .carousel-inner{
-	background-color: #b891ff;
+	background-color: grey;
 	
   height:100%;
   width : 100%;
@@ -137,7 +137,7 @@ ol {
 }
 #Audit{
 	font-size:2em;
-	color:white;
+
 }
 table, th, td{
 	border: 2px solid #333;
@@ -149,16 +149,13 @@ table, th, td{
 table {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-tr:hover {
-	background-color: #b891ff;
-	color:white;
+tr{
+	background-color: white;
+	color=black;
 }
 th {
-	background-color: #d1ffcf;
-	color: white;
 }
 td{
-	color:white;
 }
 caption {
 	padding: 10px;
