@@ -9,8 +9,15 @@ require_once('config.php');
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
  echo "<div style='color:white;'>"."Logged in as:" . htmlspecialchars($_SESSION["email"])."</div>";
-?>
 
+$queryUID = "SELECT userID FROM student WHERE email= '".$_SESSION["email"]."'";
+$UIDQ = mysqli_query($conn,$queryUID);
+if (!$UIDQ) {
+    echo "Error getting UID: ", mysqli_error($conn);
+    exit;
+}
+$UID=mysqli_fetch_array($UIDQ);
+ ?>
 <html>
 	<head>
 	
@@ -286,7 +293,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 			</tr>
 		</table>
 	</div>
-			<div id="Audit" style="display:none">
+	<div id="Audit" style="display:none">
 		<div class="row">
 			<div class="col">
 
@@ -300,7 +307,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 						<th>SemesterTaken</th>
 					</tr>
 					<?php
-						$queryxx = "SELECT * from progress";
+						$queryxx = "SELECT * FROM progress WHERE userID=".$UID['userID']."";
 						$resultxx = mysqli_query($conn,$queryxx);
 						$coursesPassed = 0;
 							while($rowxx=mysqli_fetch_array($resultxx)){
@@ -323,7 +330,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 						<th>Course Name</th>
 					</tr>
 					<?php
-						$queryx = "SELECT * FROM course WHERE reqID NOT IN(SELECT courseID FROM progress) GROUP BY reqID";
+						$queryx = "SELECT * FROM course WHERE reqID NOT IN(SELECT courseID FROM progress WHERE userID=".$UID['userID'].") GROUP BY reqID";
 						$resultx=mysqli_query($conn,$queryx);
 						$coursesRemaining=0;
 						while($rowx=mysqli_fetch_array($resultx)){
