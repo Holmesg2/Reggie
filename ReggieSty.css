@@ -149,6 +149,11 @@ ol {
 
 .navbar {
 	width:100%;
+	padding: 0px;
+	border-style: solid;
+	border-width: 8px;
+	border-color: #009100;
+	
 }
 
 #Audit {
