@@ -36,15 +36,15 @@ $UID=mysqli_fetch_array($UIDQ);
 	<div class="row" id="nav">
 		<nav class="navbar navbar-light bg-light">
 			<div class="col navb">
-				<button class="btn-block btn-primary" onclick="schedule()" type="button">Schedule</button>
+				<button class="btn-block btn-primary1" onclick="schedule()" type="button">Schedule</button>
 			</div>
 			<div class="col navb">
 				
-				<button class="btn-block btn-primary" onclick="browseCourses()" type="button">Browse Courses</button>
+				<button class="btn-block btn-primary2" onclick="browseCourses()" type="button">Browse Courses</button>
 			</div>
 			<div class="col navb">
 				
-				<button class="btn-block btn-primary" onclick="audit()" type="button">Audit</button>
+				<button class="btn-block btn-primary3" onclick="audit()" type="button">Audit</button>
 			</div>
 		</nav>
 	</div>

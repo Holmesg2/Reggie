@@ -48,6 +48,7 @@ div {
 	font-family:Oswald, monospace;
 	color:black;
 	font-weight:bold;
+
 }
  
 .topper-r {
@@ -56,6 +57,7 @@ div {
 	font-family:Oswald, monospace;
 	color:black;
 	font-weight:bold;
+
 }
 
 .row {
@@ -146,15 +148,6 @@ ol {
 * {
 	box-sizing: border-box;
 }
-.btn-primary:focus{
-	background:#009100;
-}
-.btn-primary1:focus{
-	background:#009100;
-}
-.btn-primary1{
-	background:white;
-}
 
 .navbar {
 	width:100%;
@@ -181,7 +174,9 @@ table, th, td{
 table {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
+.active{
+	background:#009100;
+}
 tr {
 	background-color: white;
 	color=black;
@@ -197,4 +192,20 @@ td{
 caption {
 	padding: 10px;
 	letter-spacing: 0.5px;
+}
+
+.btn-primary1{
+	color: black;
+    background-color: white;
+    border-color: #009100;
+}
+.btn-primary2{
+	color: black;
+    background-color: white;
+    border-color: #009100;
+}
+.btn-primary3{
+	color: black;
+    background-color: white;
+    border-color: #009100;
 }

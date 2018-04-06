@@ -1,24 +1,39 @@
 var y = document.getElementById("Course");
 var x = document.getElementById("Schedule");
 var z = document.getElementById("Audit");
+var ybtn=document.getElementById("courseBtn");
+var xbtn=document.getElementById("scheduleBtn");
+var zbtn=document.getElementById("auditBtn");
 
 window.onload=updateSemester();
 
 function schedule(){
-	
+	$('.btn-primary1').css('background-color', '#009100');
+	$('.btn-primary2').css('background-color', 'white');
+	$('.btn-primary3').css('background-color', 'white');
 	y.style.display="none";
 	z.style.display="none";
 	x.style.display="block";
+
+	
 }
 function browseCourses(){
+	$('.btn-primary1').css('background-color', 'white');
+	$('.btn-primary2').css('background-color', '#009100');
+	$('.btn-primary3').css('background-color', 'white');
 	y.style.display="block";
 	z.style.display="none";
 	x.style.display="none";
+;
 }
 function audit(){
+	$('.btn-primary1').css('background-color', 'white');
+	$('.btn-primary2').css('background-color', 'white');
+	$('.btn-primary3').css('background-color', '#009100');
 	y.style.display="none";
 	z.style.display="block";
 	x.style.display="none";
+
 }
 
 
