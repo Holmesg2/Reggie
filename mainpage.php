@@ -11,16 +11,6 @@ require_once('config.php');
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-echo "<div id='top-left'>"."Logged in as:" . htmlspecialchars($_SESSION["email"])."</div>";
- echo "<form class='form-classes' method='POST' action='logout.php'><button id='top-right' type='submit' class='btn btn-default'>Log out</button></form>";
-
-$queryUID = "SELECT userID FROM student WHERE email= '".$_SESSION["email"]."'";
-$UIDQ = mysqli_query($conn,$queryUID);
-if (!$UIDQ) {
-    echo "Error getting UID: ", mysqli_error($conn);
-    exit;
-}
-$UID=mysqli_fetch_array($UIDQ);
 ?>
 
 <html>
@@ -33,6 +23,19 @@ $UID=mysqli_fetch_array($UIDQ);
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
 <div class="container" id="primaryWindow">
+<?php
+
+echo "<div id=top><div id='top-left'>"."Logged in as:" . htmlspecialchars($_SESSION["email"])."</div>";
+echo "<form class='form-classes' method='POST' action='logout.php'><button id='top-right' type='submit' class='btn btn-default'>Log out</button></form></div>";
+
+$queryUID = "SELECT userID FROM student WHERE email= '".$_SESSION["email"]."'";
+$UIDQ = mysqli_query($conn,$queryUID);
+if (!$UIDQ) {
+    echo "Error getting UID: ", mysqli_error($conn);
+    exit;
+}
+$UID=mysqli_fetch_array($UIDQ);
+?>
 	<div class="row" id="nav">
 		<nav class="navbar navbar-light bg-light">
 			<div class="col navb">
@@ -48,12 +51,13 @@ $UID=mysqli_fetch_array($UIDQ);
 			</div>
 		</nav>
 	</div>
+	<div id="Course">
 	<div class="row" >
 		<h1 id="sem">
 		</h1>
 	</div>
-	<div id="Course">
-	<div class="row">
+
+	<div class="row carouselHeader">
 		<div class="col topper-l" id="courseLabel">
 			<label>Course Names</label>
 		</div>

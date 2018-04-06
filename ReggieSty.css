@@ -7,7 +7,7 @@
 
 body {
 	background-color: white;
-	overflow:auto;
+
 }
 
 div {
@@ -34,6 +34,7 @@ div {
 
 .nav {
 	background-color: white;
+	border-radius: 25px;
 }
 
 #courseLabel{
@@ -43,7 +44,8 @@ div {
 }
 
 .topper-l {
-	padding-left:15%;
+	width:19%;
+	text-align:center;
 	font-size:25px;
 	font-family:Oswald, monospace;
 	color:black;
@@ -52,11 +54,13 @@ div {
 }
  
 .topper-r {
-	padding-right:12%;
+	text-align:center;
+	width:57%;
 	font-size:25px;
 	font-family:Oswald, monospace;
 	color:black;
 	font-weight:bold;
+	padding-right:20%;
 
 }
 
@@ -74,11 +78,11 @@ div {
 	text-align: center;
 	vertical-align: middle;
     line-height: 60px;
-	background-color: #009100
+	background-color: #0cb933;
 }
 
 .carousel-inner {
-	background-color: #009100;
+	background-color: #0cb933;
 	height:100%;
 	width : 100%;
 }
@@ -151,16 +155,18 @@ ol {
 
 .navbar {
 	width:100%;
+	height:30%;
 	padding: 0px;
 	border-style: solid;
-	border-width: 8px;
-	border-color: #009100;
+	border-width: 3px;
+	border-color: black;
 	
 }
 
 #Audit {
 	font-size:2em;
 	text-align: center;
+	overflow:auto;
 }
 
 table, th, td{
@@ -175,7 +181,7 @@ table {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .active{
-	background:#009100;
+	background:#0cb933;
 }
 tr {
 	background-color: white;
@@ -183,7 +189,7 @@ tr {
 }
 
 th {
-	background-color: #009100;
+	background-color: #0cb933;
 }
 
 td{
@@ -195,23 +201,41 @@ caption {
 }
 
 .btn-primary1{
+	font-size:20px;
+	height:100%;
 	color: black;
     background-color: white;
-    border-color: #009100;
+    border-color: #0cb933;
 	}
 .btn-primary2{
-
+	font-size:20px;
+	height:100%;
 	color: black;
-    background-color: white;
-    border-color: #009100;
+    background-color: #0cb933;
+    border-color: #0cb933;
 }
 .btn-primary3{
+	font-size:20px;
+	height:100%;
 	color: black;
     background-color: white;
-    border-color: #009100;
+    border-color: #0cb933;
 }
 .btn-primary{
 	background-color: white;
 	color: black;
-	border-color:#009100;
+	border-color:#0cb933;
+}
+.btn-primary:hover{
+	background-color:#0cb933;
+}
+.carouselHeader{
+	width:100%;
+	padding-right: 15px;
+    padding-left: 15px;
+}
+#top{
+	background-color:#0cb933;
+	height:10%;
+	width:100%;
 }
