@@ -112,7 +112,7 @@ days VARCHAR(9),
 time TIME,
 timeEnd TIME,
 capacity INT(3) UNSIGNED,
-taken INT(3) UNSIGNED
+taken INT(3) UNSIGNED DEFAULT '0'
 )";
 if ($conn->query($sql_section) === TRUE) {
     echo "Table section created successfully<br/>";
