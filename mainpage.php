@@ -72,8 +72,8 @@ $UID=mysqli_fetch_array($UIDQ);
 	<div class="row">
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="false" data-interval="false">
 			<ol class="carousel-indicators" id="indicators">
-				<li data-target="#carouselExampleIndicators" data-slide-to="0"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
+				<li data-target="#carouselExampleIndicators" onclick="updateSemester()" data-slide-to="0"></li>
+				<li data-target="#carouselExampleIndicators" onclick="updateSemester()" data-slide-to="1" class="active"></li>
 				<?php
 				$query = "SELECT * from semester";
 			$result = mysqli_query($conn,$query);
@@ -91,28 +91,57 @@ $UID=mysqli_fetch_array($UIDQ);
 						<div class='requirements inside' style='overflow:scroll; overflow-x: hidden;'>
 							<div class='col navb'>
 			<?php
-			$seminfo= "";
 			$sql = "SELECT * from section";
 			$resSections = mysqli_query($conn,$sql);
-			while ($rows = mysqli_fetch_array($resSections)) {
-				$seminfo.=$rows['CRN'].$rows['courseID'].$rows['professor'].$rows['location'].$rows['days'].$rows['time'].$rows['timeEnd'].$rows['capacity'];
-			}
 			$completedCourseCount=0;
 			$query = "SELECT * from progress";
 			$result = mysqli_query($conn,$query);
+			$progArray = array();
+			$sectionArray = array();
+			while ($row = mysqli_fetch_array($result)){
+				$progArray[] = $row;
+			}
+			while ($rows = mysqli_fetch_array($resSections)) {
+				$sectionArray[]=$rows;
+			}
+			
+			//grabbing courses to grab the course Name by CourseID
+			$courseQuery = "SELECT * from course";
+			$courseResult = mysqli_query($conn,$courseQuery);
+			$courseNameArray=array();
+			while ($courseRows = mysqli_fetch_array($courseResult)) {
+				$courseNameArray[]=$courseRows;
+			}
+			
 						
-						while ($row = mysqli_fetch_array($result)) {
+						foreach ($progArray as $row){
+							$seminfo= "";
+							$fullName="";
+							foreach($sectionArray as $rows) {
+								#echo"<script>alert('".$rows['courseID'].$row['courseID']."');</script>";
+
+								if($rows['courseID']==$row['courseID']){
+									foreach($courseNameArray as $courseName){
+										if ($courseName['CourseID'] == $row['courseID']){
+											$fullName = $courseName['courseName'];
+										}
+									}
+									#echo"<script>alert('".$rows['courseID'].$row['courseID']."');</script>";
+									$seminfo.=$rows['CRN']."|".$rows['courseID']."|".$rows['professor']."|".$rows['location']."|".$rows['days']."|".$rows['time']."|".$rows['timeEnd']."|".$rows['capacity'];
+									$seminfo.="_";
+								}
+							}
 							$completedCourseCount++;
 							echo "	<div class='row' style='height:20%;'>
-										<button class='btn-block btn-primary btn-course$completedCourseCount' onclick=\"updateSeminfo(1,'$seminfo')\" type='button'>".$row['courseID']."</button>
+										<button class='btn-block btn-primary btn-course$completedCourseCount' onclick=\"updateSeminfo(1,'$seminfo','$fullName')\" type='button'>".$row['courseID']."</button>
 									</div>";
 						}?>
 							</div>
 						</div>
-							<div class='info inside'>
 								<div id='semesterHead' name='seminfo1'>
 									hey
 								</div>
+							<div class='info inside' name="inside1">
 							</div>
 					</div>
 			<?php
@@ -160,23 +189,63 @@ $UID=mysqli_fetch_array($UIDQ);
 					<div class='requirements inside'>
 						<div class='col navb'>";
 							for ($j=0;$j<4;$j++){
+								$seminfo="";
 								$num=$j+$saveIndex;
+								$CourseIDafter2 = $allCourses[($j+$saveIndex)];
+								foreach($courseNameArray as $courseName){
+									foreach($sectionArray as $rows) {
+										if ($courseName['CourseID'] == $CourseIDafter2){
+											$fullName2 = $courseName['courseName'];
+										}
+									}
+								}
+								$query ="SELECT * FROM course WHERE reqID LIKE '%ELEC%'";
+								$result =mysqli_query($conn,$query);
+								$reqIDarr = array();
+								while ($row = mysqli_fetch_array($result)){
+									$reqIDarr[]=$row;
+								}
+								$checker=0;
+								foreach ($reqIDarr as $req){
+									if ($allCourses[$j+$saveIndex] == $req['reqID']){
+										$checker=1;
+										foreach($sectionArray as $section){
+											if ($req['CourseID']==$section['courseID']){
+												$seminfo.=$section['CRN']."|".$section['courseID']."|".$section['professor']."|".$section['location']."|".$section['days']."|".$section['time']."|".$section['timeEnd']."|".$section['capacity'];
+												$seminfo.="_";
+											}
+										}
+										if ($num >= count($allCourses)){
+											break;
+										}
+									}
+								}
+								#echo "<script>alert('".$CourseIDafter2."');</script>";
+								$queryz = "SELECT * from section WHERE courseID='".$CourseIDafter2."'";
+								$resultz = mysqli_query($conn,$queryz);
+								while ($row2 = mysqli_fetch_array($resultz)){
+									if ($checker==1){
+										$checker=0;
+										break;
+									}
+									$seminfo.=$row2['CRN']."|".$row2['courseID']."|".$row2['professor']."|".$row2['location']."|".$row2['days']."|".$row2['time']."|".$row2['timeEnd']."|".$row2['capacity'];
+									$seminfo.="_";
+								}
 								if ($num >= count($allCourses)){
 									break;
 								}
 								else{
 									echo "<div class='row courses'>
-										<button class='btn-block btn-primary btn-course".($completedCourseCount+$activeCount)."' type='button'>".$allCourses[($j+$saveIndex)]."</button>
+										<button class='btn-block btn-primary btn-course".($completedCourseCount+$activeCount)."' onclick=\"updateSeminfo(".($i+2).",'$seminfo','$fullName2')\" type='button'>".$CourseIDafter2."</button>
 									</div>";
 								}
 							}
 							$saveIndex+=4;
 				echo	"</div>
 					</div>
-					<div class='info inside'>
-						<div id='semesterHead' name='seminfo".($i+2)."'>
-							hey
-						</div>
+					<div id='semesterHead' name='seminfo".($i+2)."'>
+					</div>
+					<div class='info inside' name='inside".($i+2)."'>	
 					</div>
 				</div>";
 				if($activeCount >1){
@@ -207,7 +276,8 @@ $UID=mysqli_fetch_array($UIDQ);
 		</div>
 	</div>
 	</div>
-	</div>
+	</div><iframe width="0" height="0" border="0" name="dummyframe" style="display: none;" id="dummyframe"></iframe>
+	
 	<div id="Schedule" style="display:none">
 			<table align="center">
 			<tr>
