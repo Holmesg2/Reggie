@@ -2,11 +2,12 @@
 	border-style: none;
 	border-width: 0px;
 	height:50%;
-	width:100%;
+	width:100%;'
+
 }
 
 body {
-	background-color: white;
+	background-color: #f1f1f1;
 
 }
 
@@ -42,7 +43,12 @@ div {
 	font: Oswald;
 	border-width: 1px;
 }
-
+#topTItle{
+	font-family: Oswald;
+	font: Oswald;
+	font-size:35px;
+	padding-left: 12%;
+}
 .topper-l {
 	width:19%;
 	text-align:center;
@@ -225,6 +231,8 @@ caption {
 	background-color: white;
 	color: black;
 	border-color:#0cb933;
+	height:100%;
+	width:100%;
 }
 .btn-primary:hover{
 	background-color:#0cb933;
