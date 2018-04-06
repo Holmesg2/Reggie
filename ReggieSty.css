@@ -121,16 +121,18 @@ div {
 }
 
 .info {
+	overflow:auto;
 	float:right;
   	vertical-align: top;
 	width: 57%;
-	height: 95%;
+	height: 85%;
 	margin-right: 8%;
 	border-style: none;
 	border-width: 0px;
 }
 
 .inside {
+	overflow:auto;
 	background-color: white;
 }
 
@@ -142,6 +144,7 @@ div {
 }
 
 #semesterHead {
+	height: 10%;	
 	border-style: none;
 	border-width: 1px;
 	border-right: 0px;
