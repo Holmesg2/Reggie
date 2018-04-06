@@ -53,7 +53,8 @@ function updateSeminfoComp(i,seminfo,name){
 	var sem=document.getElementsByName("seminfo"+i);
 	sem[0].innerHTML = name;
 }
-function updateSeminfo(i,seminfo,name){
+function updateSeminfo(i,seminfo,name, scheduleTimes){
+	//alert(scheduleTimes+"js");
 	var sem=document.getElementsByName("seminfo"+i);
 	sem[0].innerHTML = name;
 	var inside=document.getElementsByName("inside"+i);
@@ -65,13 +66,26 @@ function updateSeminfo(i,seminfo,name){
 	//for (i =0; i<curClasses.length;i++){
 	//	inside[0].removeChild(curClasses[i]);
 	//}
-	
+
+	var times=scheduleTimes.split(",");
+	//alert("times"+times[0]);
 	var sections = seminfo.split("_");
 	for (i =0; i<sections.length-1;i++){
 		var sectionInfo = sections[i].split("|");
 		var dummy = document.getElementById("dummyframe");
-		
+		inSchedule=0;
 		var div=document.createElement("div");
+		startTime=sectionInfo[5];
+		//alert("startTime"+startTime);
+		for(j=0;j<times.length;j++){
+			//alert(startTime);
+				if(times[j]==startTime){
+					inSchedule=1;
+				}
+		}
+		if (inSchedule==1){
+			div.setAttribute("style","background-color:red");
+		}
 		div.setAttribute("name", "curClassInfo");
 		div.style.borderBottom="thick solid black";
 		div.innerHTML="CRN:"+sectionInfo[0]+"	"+sectionInfo[1]+"	"+sectionInfo[2]+"	"+sectionInfo[3]+"	"+sectionInfo[4]+"	"+sectionInfo[5]+"\n"+sectionInfo[6]+"\n"+sectionInfo[7];
@@ -89,6 +103,9 @@ function updateSeminfo(i,seminfo,name){
 		
 		
 		var addButton=document.createElement("button");
+		if (inSchedule==1){
+			addButton.setAttribute('disabled','disabled');
+		}
 		addButton.setAttribute("class","btn-block");
 		addButton.setAttribute("type","submit");
 		addButton.setAttribute("value","submit");

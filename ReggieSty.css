@@ -145,11 +145,12 @@ div {
 
 #semesterHead {
 	height: 10%;	
-	border-style: none;
+	border-style:solid;
 	border-width: 1px;
 	border-right: 0px;
 	border-top: 0;
 	border-left: 0px;
+	border-bottom:1px;
 	/*font: 30px/32px sans-serif;*/
 	font-family: Oswald;
 }
@@ -233,7 +234,7 @@ caption {
 .btn-primary{
 	background-color: white;
 	color: black;
-	border-color:#0cb933;
+	border-color:#bbecc6;
 	height:100%;
 	width:100%;
 }

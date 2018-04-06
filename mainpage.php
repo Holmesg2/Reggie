@@ -94,7 +94,7 @@ $UID=mysqli_fetch_array($UIDQ);
 			$sql = "SELECT * from section";
 			$resSections = mysqli_query($conn,$sql);
 			$completedCourseCount=0;
-			$query = "SELECT * from progress";
+			$query = "SELECT * from progress WHERE userID=".$UID['userID']."";
 			$result = mysqli_query($conn,$query);
 			$progArray = array();
 			$sectionArray = array();
@@ -148,7 +148,7 @@ $UID=mysqli_fetch_array($UIDQ);
 			//for ($i=0;$i<count($allCourses);$i++){
 			//			echo "$allCourses[$i]<br>";
 			//}
-			$query = "SELECT * from progress";
+			$query = "SELECT * from progress WHERE userID=".$UID['userID']."";
 			$result = mysqli_query($conn,$query);
 			$progCourses = array();
 			while ($row2 = mysqli_fetch_array($result)){
@@ -203,6 +203,7 @@ $UID=mysqli_fetch_array($UIDQ);
 								while ($row = mysqli_fetch_array($result)){
 									$reqIDarr[]=$row;
 								}
+								$startTime=array();
 								$checker=0;
 								foreach ($reqIDarr as $req){
 									if ($allCourses[$j+$saveIndex] == $req['reqID']){
@@ -211,6 +212,7 @@ $UID=mysqli_fetch_array($UIDQ);
 											if ($req['CourseID']==$section['courseID']){
 												$seminfo.=$section['CRN']."|".$section['courseID']."|".$section['professor']."|".$section['location']."|".$section['days']."|".$section['time']."|".$section['timeEnd']."|".$section['capacity'];
 												$seminfo.="_";
+												$startTime[]=$section['time'];
 											}
 										}
 										if ($num >= count($allCourses)){
@@ -228,22 +230,39 @@ $UID=mysqli_fetch_array($UIDQ);
 									}
 									$seminfo.=$row2['CRN']."|".$row2['courseID']."|".$row2['professor']."|".$row2['location']."|".$row2['days']."|".$row2['time']."|".$row2['timeEnd']."|".$row2['capacity'];
 									$seminfo.="_";
+									
+									$startTime[]=$row2['time'];
 								}
+								
+								$confq= "SELECT * FROM section WHERE CRN IN(SELECT CRN FROM schedule WHERE userID=".$UID['userID'].")";
+								$resultConflicts = mysqli_query($conn,$confq);
+								$scheduleTimes="";
+								while ($conflicts = mysqli_fetch_array($resultConflicts)){
+								#echo "<script>alert('".$startTime."+'startTime+".$conflicts['time']."');</script>";
+									foreach($startTime as $starter)
+										if($starter == $conflicts['time']){
+											$scheduleTimes.=$conflicts['time'];
+											$scheduleTimes.=",";
+										#echo "<script>alert('".$scheduleTimes."+'passed');</script>";
+										}
+								}
+
 								if ($num >= count($allCourses)){
 									break;
 								}
 								else{
+									#echo "<script>alert('".$scheduleTimes."');</script>";
 									echo "<div class='row courses'>
-										<button class='btn-block btn-primary btn-course".($num)."' onclick=\"updateSeminfo(".($i+2).",'$seminfo','$fullName2');colorBtn(".count($progArray).",".($num).")\" type='button'>".$CourseIDafter2."</button>
+										<button class='btn-block btn-primary btn-course".($num)."' onclick=\"updateSeminfo(".($i+2).",'$seminfo','$fullName2','$scheduleTimes');colorBtn(".count($progArray).",".($num).")\" type='button'>".$CourseIDafter2."</button>
 									</div>";
 								}
 							}
 							$saveIndex+=4;
 				echo	"</div>
 					</div>
-					<div id='semesterHead' name='seminfo".($i+2)."'>
+					<div id='semesterHead' name='seminfo".($i+2)."'>No course Selected
 					</div>
-					<div class='info inside' name='inside".($i+2)."'>	
+					<div class='info inside' name='inside".($i+2)."'>Choose A Course!
 					</div>
 				</div>";
 				if($activeCount >1){
@@ -395,7 +414,7 @@ $UID=mysqli_fetch_array($UIDQ);
 	//every timeslot
 	$timesArr = array("08:00:00", "09:00:00", "10:00:00", "11:00:00", "12:00:00", "01:00:00", "02:00:00", "03:00:00", "04:00:00", "05:00:00", "06:00:00", "07:00:00");
 	$daysArr = array("M","T","W","R","F");
-	$sql = "SELECT * from schedule";
+	$sql = "SELECT * from schedule WHERE userID=".$UID['userID']."";
 	$scheduleRes = mysqli_query($conn,$sql);
 	while ($rows = mysqli_fetch_array($scheduleRes)) {
 		foreach($CRNsections as $crn){
@@ -417,10 +436,34 @@ $UID=mysqli_fetch_array($UIDQ);
 								$courseIDSchedule=$crn['courseID'];
 								echo "
 								<script>
-								//alert('".$rows['courseID']."');
+								
+								
 								scheduleHTML='".$courseIDSchedule."\\nCRN:".$crn['CRN']."\\n".$prof."\\n".$loc."\\nAct:".$taken."\\nRem:".$REM."';
 								cell=document.getElementById('".$timeslot.$day."');
 								cell.innerHTML=scheduleHTML;
+								
+								var numInput=document.createElement(\"input\");
+								numInput.setAttribute(\"name\",\"number\");
+								numInput.setAttribute(\"value\",".$crn['CRN'].");
+								numInput.setAttribute(\"style\",\"display:none\");
+								
+								var numForm=document.createElement(\"form\");
+								numForm.setAttribute(\"method\",\"post\");
+								numForm.setAttribute(\"action\",\"deleteSchedule.php\");
+								
+								var addButton=document.createElement(\"button\");
+								addButton.setAttribute(\"class\",\"btn-block\");
+								addButton.setAttribute(\"type\",\"submit\");
+								addButton.setAttribute(\"value\",\"submit\");
+		
+								var buttonText=document.createElement(\"span\");
+								buttonText.setAttribute(\"class\",\"class='glyphicon glyphicon-play-circle\");
+								buttonText.innerHTML=\"Remove\";
+								
+								numForm.appendChild(numInput);
+								addButton.appendChild(buttonText);
+								numForm.appendChild(addButton);
+								cell.appendChild(numForm);
 								</script>
 								";
 							}
