@@ -210,7 +210,11 @@ caption {
 	padding: 10px;
 	letter-spacing: 0.5px;
 }
-
+#Course{
+	border-style:none;
+	border-width:2px;
+	background-color:white;
+}
 .btn-primary1{
 	font-size:20px;
 	height:100%;
@@ -249,9 +253,13 @@ caption {
     padding-left: 15px;
 }
 #top{
-	background-color:#8bffa7;
+	background-color:white;
 	height:10%;
 	width:100%;
+	border-left-style: solid;
+    border-right-style: solid;
+    border-right: 1px;
+    border-left: 1px;
 }
 
 .carousel-control-next:hover, .carousel-control-prev:hover{
