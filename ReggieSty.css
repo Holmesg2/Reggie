@@ -84,11 +84,11 @@ div {
 	text-align: center;
 	vertical-align: middle;
     line-height: 60px;
-	background-color: #0cb933;
+	background-color: #8bffa7;
 }
 
 .carousel-inner {
-	background-color: #0cb933;
+	background-color: #8bffa7;
 	height:100%;
 	width : 100%;
 }
@@ -106,6 +106,7 @@ div {
 
 .carousel-control-next, .carousel-control-prev {
 	width:8%;
+	background-color:#5a5a5a;
 }
 
 .requirements {
@@ -191,7 +192,7 @@ table {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .active{
-	background:#0cb933;
+	background:#8bffa7;
 }
 tr {
 	background-color: white;
@@ -199,7 +200,7 @@ tr {
 }
 
 th {
-	background-color: #0cb933;
+	background-color: #8bffa7;
 }
 
 td{
@@ -215,21 +216,21 @@ caption {
 	height:100%;
 	color: black;
     background-color: white;
-    border-color: #0cb933;
+    border-color: #bbecc6;
 	}
 .btn-primary2{
 	font-size:20px;
 	height:100%;
 	color: black;
-    background-color: #0cb933;
-    border-color: #0cb933;
+    background-color: #bbecc6;
+    border-color: #bbecc6;
 }
 .btn-primary3{
 	font-size:20px;
 	height:100%;
 	color: black;
     background-color: white;
-    border-color: #0cb933;
+    border-color: #bbecc6;
 }
 .btn-primary{
 	background-color: white;
@@ -239,7 +240,8 @@ caption {
 	width:100%;
 }
 .btn-primary:hover{
-	background-color:#0cb933;
+	background-color:#bbecc6;
+	color:black;
 }
 .carouselHeader{
 	width:100%;
@@ -247,7 +249,13 @@ caption {
     padding-left: 15px;
 }
 #top{
-	background-color:#0cb933;
+	background-color:#8bffa7;
 	height:10%;
 	width:100%;
 }
+
+.carousel-control-next:hover, .carousel-control-prev:hover{
+	    background-color: #5a5a5a;
+		
+}
+

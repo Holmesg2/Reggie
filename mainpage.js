@@ -6,7 +6,7 @@ var z = document.getElementById("Audit");
 window.onload=updateSemester();
 
 function schedule(){
-	$('.btn-primary1').css('background-color', '#0cb933');
+	$('.btn-primary1').css('background-color', '#bbecc6');
 	$('.btn-primary2').css('background-color', 'white');
 	$('.btn-primary3').css('background-color', 'white');
 	y.style.display="none";
@@ -17,7 +17,7 @@ function schedule(){
 }
 function browseCourses(){
 	$('.btn-primary1').css('background-color', 'white');
-	$('.btn-primary2').css('background-color', '#0cb933');
+	$('.btn-primary2').css('background-color', '#bbecc6');
 	$('.btn-primary3').css('background-color', 'white');
 	y.style.display="block";
 	z.style.display="none";
@@ -27,7 +27,7 @@ function browseCourses(){
 function audit(){
 	$('.btn-primary1').css('background-color', 'white');
 	$('.btn-primary2').css('background-color', 'white');
-	$('.btn-primary3').css('background-color', '#0cb933');
+	$('.btn-primary3').css('background-color', '#bbecc6');
 	y.style.display="none";
 	z.style.display="block";
 	x.style.display="none";
@@ -140,13 +140,13 @@ function colorBtn(completed, position){
 		$(toChange2).css('background-color', 'white');
 		$(toChange3).css('background-color', 'white');
 		$(toChange4).css('background-color', 'white');
-		$(toSelected).css('background-color','#0cb933');
+		$(toSelected).css('background-color','#bbecc6');
 	}
 	else{
 		for(var i=0; i<completed; i++){
 			$('.btn-course'+i.toString()).css('background-color', 'white');
 		}
-		$('.btn-course'+position.toString()).css('background-color','#0cb933');
+		$('.btn-course'+position.toString()).css('background-color','#bbecc6');
 	}
 }
 
