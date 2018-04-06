@@ -6,7 +6,7 @@
 }
 
 body {
-	background-color: #009100;
+	background-color: white;
 	overflow:auto;
 }
 
@@ -145,6 +145,15 @@ ol {
 
 * {
 	box-sizing: border-box;
+}
+.btn-primary:focus{
+	background:#009100;
+}
+.btn-primary1:focus{
+	background:#009100;
+}
+.btn-primary1{
+	background:white;
 }
 
 .navbar {
