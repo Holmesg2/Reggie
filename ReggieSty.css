@@ -198,13 +198,16 @@ caption {
 	color: black;
     background-color: white;
     border-color: #009100;
-}
+	display:none;
+	}
 .btn-primary2{
+	display:block;
 	color: black;
     background-color: white;
     border-color: #009100;
 }
 .btn-primary3{
+	display:none;
 	color: black;
     background-color: white;
     border-color: #009100;
