@@ -18,6 +18,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Oswald" />
 		<LINK href="ReggieSty.css" rel="stylesheet" type="text/css">
+		<title>Reggie</title>
+		<link rel="icon" href="login-account-create/reggie.png">
 	</head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
