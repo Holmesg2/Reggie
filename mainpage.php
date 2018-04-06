@@ -133,15 +133,16 @@ $UID=mysqli_fetch_array($UIDQ);
 							}
 							$completedCourseCount++;
 							echo "	<div class='row' style='height:20%;'>
-										<button class='btn-block btn-primary btn-course$completedCourseCount' onclick=\"updateSeminfo(1,'$seminfo','$fullName')\" type='button'>".$row['courseID']."</button>
+										<button class='btn-block btn-primary btn-course$completedCourseCount' onclick=\"updateSeminfoComp(1,'$seminfo','$fullName')\" type='button'>".$row['courseID']."</button>
 									</div>";
 						}?>
 							</div>
 						</div>
 								<div id='semesterHead' name='seminfo1'>
-									hey
 								</div>
-							<div class='info inside' name="inside1">
+							<div class='info inside' name="inside1">This Course has been completed.<br><br>
+
+							Grade: N/A
 							</div>
 					</div>
 			<?php
