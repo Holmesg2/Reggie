@@ -1,9 +1,7 @@
 var y = document.getElementById("Course");
 var x = document.getElementById("Schedule");
 var z = document.getElementById("Audit");
-var ybtn=document.getElementById("courseBtn");
-var xbtn=document.getElementById("scheduleBtn");
-var zbtn=document.getElementById("auditBtn");
+
 
 window.onload=updateSemester();
 
@@ -75,13 +73,13 @@ function colorBtn(completed, position){
 		$(toSelected).css('background-color','#009100');
 	}
 	else{
-		for(int i=0; i<completed; i++){
+		for(var i=0; i<completed; i++){
 			$('.btn-course'+i.toString()).css('background-color', 'white');
 		}
-		$('.btn-course'+position.toString().css('background-color','#009100');
+		$('.btn-course'+position.toString()).css('background-color','#009100');
 	}
 }
 
-function colorCompleted(completed, position){
+
 
 
