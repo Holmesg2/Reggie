@@ -112,8 +112,6 @@ $UID=mysqli_fetch_array($UIDQ);
 			while ($courseRows = mysqli_fetch_array($courseResult)) {
 				$courseNameArray[]=$courseRows;
 			}
-			
-						
 						foreach ($progArray as $row){
 							$seminfo= "";
 							$fullName="";
@@ -141,7 +139,6 @@ $UID=mysqli_fetch_array($UIDQ);
 								<div id='semesterHead' name='seminfo1'>
 								</div>
 							<div class='info inside' name="inside1">This Course has been completed.<br><br>
-
 							Grade: N/A
 							</div>
 					</div>
@@ -388,43 +385,40 @@ $UID=mysqli_fetch_array($UIDQ);
 		</table>
 		
 	<?php
-	$sql = "SELECT * from section WHERE userID=".$UID['userID']."";
+	$sql = "SELECT * from section";
 	$CRNRes = mysqli_query($conn,$sql);	
-	$CRN = array();
+	$CRNsections = array();
 	while ($rows = mysqli_fetch_array($CRNRes)) {
-		$CRN[] = $rows['CRN1'];
-		$CRN[] = $rows['CRN2'];
-		$CRN[] = $rows['CRN3'];
-		$CRN[] = $rows['CRN4'];
-		$CRN[] = $rows['CRN5'];
+		$CRNsections[] = $rows;
 	}
+	
 	//every timeslot
 	$timesArr = array("08:00:00", "09:00:00", "10:00:00", "11:00:00", "12:00:00", "01:00:00", "02:00:00", "03:00:00", "04:00:00", "05:00:00", "06:00:00", "07:00:00");
 	$daysArr = array("M","T","W","R","F");
-	$sql = "SELECT * from section";
+	$sql = "SELECT * from schedule";
 	$scheduleRes = mysqli_query($conn,$sql);
 	while ($rows = mysqli_fetch_array($scheduleRes)) {
-		foreach($CRN as $crn){
-			if ($crn == $rows['CRN']){
+		foreach($CRNsections as $crn){
+			if ($crn['CRN'] == $rows['CRN']){
 				$days=array();
-				$days=explode(',',$rows['days']);
-				echo "<script>alert('".$days[0]."');</script>";
-				$start=$rows['time'];
-				$end=$rows['timeEnd'];
+				$days=explode(',',$crn['days']);
+				#echo "<script>alert('".$days[0]."');</script>";
+				$start=$crn['time'];
+				$end=$crn['timeEnd'];
 				foreach($days as $day) {
 					foreach($timesArr as $timeslot){
 						foreach ($daysArr as $days) {
 							if ($start == $timeslot  && $days == $day){
 								
-								$prof=$rows['professor'];
-								$loc=$rows['location'];
-								$taken=$rows['taken'];
-								$REM=$rows['capacity'];
-								$courseIDSchedule=$rows['courseID'];
+								$prof=$crn['professor'];
+								$loc=$crn['location'];
+								$taken=$crn['taken'];
+								$REM=$crn['capacity'];
+								$courseIDSchedule=$crn['courseID'];
 								echo "
 								<script>
-								alert('".$rows['courseID']."');
-								scheduleHTML='".$courseIDSchedule."\\nCRN:".$crn."\\n".$prof."\\n".$loc."\\nAct:".$taken."\\nRem:".$REM."';
+								//alert('".$rows['courseID']."');
+								scheduleHTML='".$courseIDSchedule."\\nCRN:".$crn['CRN']."\\n".$prof."\\n".$loc."\\nAct:".$taken."\\nRem:".$REM."';
 								cell=document.getElementById('".$timeslot.$day."');
 								cell.innerHTML=scheduleHTML;
 								</script>
