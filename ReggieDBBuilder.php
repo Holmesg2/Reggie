@@ -122,7 +122,7 @@ if ($conn->query($sql_section) === TRUE) {
 $sql_schedule="CREATE TABLE IF NOT EXISTS schedule(
 userID INT(6) NOT NULL,
 CRN INT(5),
-counter INT(2)
+#0cb933
 )";
 if ($conn->query($sql_schedule) === TRUE){
 	echo "Table schedule created successfully<br/>";
