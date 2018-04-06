@@ -49,6 +49,10 @@ function updateSemester(){
     }, 670);
 }
 
+function updateSeminfoComp(i,seminfo,name){
+	var sem=document.getElementsByName("seminfo"+i);
+	sem[0].innerHTML = name;
+}
 function updateSeminfo(i,seminfo,name){
 	var sem=document.getElementsByName("seminfo"+i);
 	sem[0].innerHTML = name;
