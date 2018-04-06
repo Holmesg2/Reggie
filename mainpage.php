@@ -29,7 +29,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 echo "<div class='row' id=top><div class='col-4' id='top-left'>"."Logged in as:" . htmlspecialchars($_SESSION["email"])."</div>";
 echo "<div class='col-6' id='topTitle'>Reggie!</div>";
-echo "<form class='form-classes col-2' method='POST' action='logout.php'><button id='top-right' type='submit' class='btn-block btn-primary'>Log out</button></form></div>";
+echo "<form class='form-classes col-2' method='POST' action='logout.php'><button id='top-right' type='submit' class='btn-block btn-primary'>Log out</button></form><br></div>";
 
 $queryUID = "SELECT userID FROM student WHERE email= '".$_SESSION["email"]."'";
 $UIDQ = mysqli_query($conn,$queryUID);
@@ -297,6 +297,7 @@ $UID=mysqli_fetch_array($UIDQ);
 	
 	<div id="Schedule" style="display:none">
 			<table align="center">
+			<br>
 			<tr>
 				<th>Reggie!</th>
 				<th id="M">Monday</th>
