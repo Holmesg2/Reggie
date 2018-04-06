@@ -49,11 +49,60 @@ function updateSemester(){
     }, 670);
 }
 
-function updateSeminfo(i,seminfo){
+function updateSeminfo(i,seminfo,name){
 	var sem=document.getElementsByName("seminfo"+i);
-	alert(sem[0]);
-	sem[0].innerHTML = seminfo;
+	sem[0].innerHTML = name;
+	var inside=document.getElementsByName("inside"+i);
+	
+	while (inside[0].firstChild) {
+		inside[0].removeChild(inside[0].firstChild);
+	}
+	var curClasses = document.getElementsByName("curClassInfo");
+	//for (i =0; i<curClasses.length;i++){
+	//	inside[0].removeChild(curClasses[i]);
+	//}
+	
+	var sections = seminfo.split("_");
+	for (i =0; i<sections.length-1;i++){
+		var sectionInfo = sections[i].split("|");
+		var dummy = document.getElementById("dummyframe");
+		
+		var div=document.createElement("div");
+		div.setAttribute("name", "curClassInfo");
+		div.style.borderBottom="thick solid black";
+		div.innerHTML="CRN:"+sectionInfo[0]+"	"+sectionInfo[1]+"	"+sectionInfo[2]+"	"+sectionInfo[3]+"	"+sectionInfo[4]+"	"+sectionInfo[5]+"\n"+sectionInfo[6]+"\n"+sectionInfo[7];
+		
+		//INSERT INTO schedule"+num+" "
+		var numInput=document.createElement("input");
+		numInput.setAttribute("value",sectionInfo[0]);
+		numInput.setAttribute("name","number");
+		numInput.setAttribute("style","display:none");
+		
+		
+		var numForm=document.createElement("form");
+		numForm.setAttribute("method","post");
+		numForm.setAttribute("action","insertSchedule.php");
+		
+		
+		var addButton=document.createElement("button");
+		addButton.setAttribute("class","btn-block");
+		addButton.setAttribute("type","submit");
+		addButton.setAttribute("value","submit");
+		
+		var buttonText=document.createElement("span");
+		buttonText.setAttribute("class","class='glyphicon glyphicon-play-circle");
+		buttonText.innerHTML="Add Course To Schedule";
+		
+		numForm.appendChild(numInput);
+		addButton.appendChild(buttonText);
+		numForm.appendChild(addButton);
+		div.appendChild(numForm);
+		
+		inside[0].appendChild(div);
+	}
 }
+
+
 
 function colorBtn(completed, position){
 	if(completed<position){
