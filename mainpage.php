@@ -131,7 +131,7 @@ $UID=mysqli_fetch_array($UIDQ);
 							}
 							$completedCourseCount++;
 							echo "	<div class='row' style='height:20%;'>
-										<button class='btn-block btn-primary btn-course$completedCourseCount' onclick=\"updateSeminfoComp(1,'$seminfo','$fullName')\" type='button'>".$row['courseID']."</button>
+										<button class='btn-block btn-primary btn-course$completedCourseCount' onclick=\"updateSeminfoComp(1,'$seminfo','$fullName'); colorBtn(".count($progArray).",'$completedCourseCount')\" type='button'>".$row['courseID']."</button>
 									</div>";
 						}?>
 							</div>
@@ -234,7 +234,7 @@ $UID=mysqli_fetch_array($UIDQ);
 								}
 								else{
 									echo "<div class='row courses'>
-										<button class='btn-block btn-primary btn-course".($completedCourseCount+$activeCount)."' onclick=\"updateSeminfo(".($i+2).",'$seminfo','$fullName2')\" type='button'>".$CourseIDafter2."</button>
+										<button class='btn-block btn-primary btn-course".($num)."' onclick=\"updateSeminfo(".($i+2).",'$seminfo','$fullName2');colorBtn(".count($progArray).",".($num).")\" type='button'>".$CourseIDafter2."</button>
 									</div>";
 								}
 							}

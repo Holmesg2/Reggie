@@ -113,7 +113,7 @@ function colorBtn(completed, position){
 		var temp;
 		temp = position - completed;
 		temp = temp % 4;
-		var head = positon-temp+1;
+		var head = position-temp;
 		var toChange1 = '.btn-course'+head.toString();
 		var toChange2 = '.btn-course'+(head+1).toString();
 		var toChange3 = '.btn-course'+(head+2).toString();
