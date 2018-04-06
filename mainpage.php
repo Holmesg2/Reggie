@@ -86,19 +86,18 @@ $UID=mysqli_fetch_array($UIDQ);
 			<?php
 			$seminfo= "";
 			$sql = "SELECT * from section";
-			$res = mysqli_query($conn,$sql);
-			while ($rows = mysqli_fetch_array($result)) {
-				$seminfo+=$rows['CRN']+$rows['courseID']+$rows['professor']+$rows['location']+$rows['days']+$rows['time']+$rows['timeEnd']+$rows['capacity'];
+			$resSections = mysqli_query($conn,$sql);
+			while ($rows = mysqli_fetch_array($resSections)) {
+				$seminfo.=$rows['CRN'].$rows['courseID'].$rows['professor'].$rows['location'].$rows['days'].$rows['time'].$rows['timeEnd'].$rows['capacity'];
 			}
-			$seminfo ="asdf";
-			
+			$completedCourseCount=0;
 			$query = "SELECT * from progress";
 			$result = mysqli_query($conn,$query);
 						
 						while ($row = mysqli_fetch_array($result)) {
-							
+							$completedCourseCount++;
 							echo "	<div class='row' style='height:20%;'>
-										<button class='btn-block btn-primary' onclick='updateSeminfo(1,'$seminfo')' type='button'>".$row['courseID']."</button>
+										<button class='btn-block btn-primary btn-course$completedCourseCount' onclick=\"updateSeminfo(1,'$seminfo')\" type='button'>".$row['courseID']."</button>
 									</div>";
 						}?>
 							</div>
@@ -111,7 +110,6 @@ $UID=mysqli_fetch_array($UIDQ);
 					</div>
 			<?php
 			//PRINTING OUT SEMESTERS WITH 4 CLASSES 
-			
 			
 			//for ($i=0;$i<count($allCourses);$i++){
 			//			echo "$allCourses[$i]<br>";
@@ -161,7 +159,7 @@ $UID=mysqli_fetch_array($UIDQ);
 								}
 								else{
 									echo "<div class='row courses'>
-										<button class='btn-block btn-primary' type='button'>".$allCourses[($j+$saveIndex)]."</button>
+										<button class='btn-block btn-primary btn-course".($completedCourseCount+$activeCount)."' type='button'>".$allCourses[($j+$saveIndex)]."</button>
 									</div>";
 								}
 							}
@@ -207,161 +205,109 @@ $UID=mysqli_fetch_array($UIDQ);
 			<table align="center">
 			<tr>
 				<th>Reggie!</th>
-				<th id="M">Monday</th>
-				<th id="T">Tuesday</th>
-				<th id="W">Wednesday</th>
-				<th id="R">Thursday</th>
-				<th id="F">Friday</th>
+				<th>Monday</th>
+				<th>Tuesday</th>
+				<th>Wednesday</th>
+				<th>Thursday</th>
+				<th>Friday</th>
 			</tr>
-			<tr id="08:00:00">
-				<td >8:00 - 9:00</td>
-				<td id="08:00:00M">&nbsp;</td>
-				<td id="08:00:00T">&nbsp;</td>
-				<td id="08:00:00W">&nbsp;</td>
-				<td id="08:00:00R">&nbsp;</td>
-				<td id="08:00:00F">&nbsp;</td>
+			<tr>
+				<td>8:00 - 9:00</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="09:00:00">
+			<tr>
 				<td>9:00 - 10:00</td>
-				<td id="09:00:00M">&nbsp;</td>
-				<td id="09:00:00T">&nbsp;</td>
-				<td id="09:00:00W">&nbsp;</td>
-				<td id="09:00:00R">&nbsp;</td>
-				<td id="09:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="10:00:00">
+			<tr>
 				<td>10:00 - 11:00</td>
-				<td id="10:00:00M">&nbsp;</td>
-				<td id="10:00:00T">&nbsp;</td>
-				<td id="10:00:00W">&nbsp;</td>
-				<td id="10:00:00R">&nbsp;</td>
-				<td id="10:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="11:00:00">
+			<tr>
 				<td>11:00 - 12:00</td>
-				<td id="11:00:00M">&nbsp;</td>
-				<td id="11:00:00T">&nbsp;</td>
-				<td id="11:00:00W">&nbsp;</td>
-				<td id="11:00:00R">&nbsp;</td>
-				<td id="11:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="12:00:00">
+			<tr>
 				<td>12:00 - 1:00</td>
-				<td id="12:00:00M">&nbsp;</td>
-				<td id="12:00:00T">&nbsp;</td>
-				<td id="12:00:00W">&nbsp;</td>
-				<td id="12:00:00R">&nbsp;</td>
-				<td id="12:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="01:00:00">
+			<tr>
 				<td>1:00 - 2:00</td>
-				<td id="01:00:00M">&nbsp;</td>
-				<td id="01:00:00T">&nbsp;</td>
-				<td id="01:00:00W">&nbsp;</td>
-				<td id="01:00:00R">&nbsp;</td>
-				<td id="01:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="02:00:00">
+			<tr>
 				<td>2:00 - 3:00</td>
-				<td id="02:00:00M">&nbsp;</td>
-				<td id="02:00:00T">&nbsp;</td>
-				<td id="02:00:00W">&nbsp;</td>
-				<td id="02:00:00R">&nbsp;</td>
-				<td id="02:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="03:00:00">
+			<tr>
 				<td>3:00 - 4:00</td>
-				<td id="03:00:00M">&nbsp;</td>
-				<td id="03:00:00T">&nbsp;</td>
-				<td id="03:00:00W">&nbsp;</td>
-				<td id="03:00:00R">&nbsp;</td>
-				<td id="03:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="04:00:00">
+			<tr>
 				<td>4:00 - 5:00</td>
-				<td id="04:00:00M">&nbsp;</td>
-				<td id="04:00:00T">&nbsp;</td>
-				<td id="04:00:00W">&nbsp;</td>
-				<td id="04:00:00R">&nbsp;</td>
-				<td id="04:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="05:00:00">
+			<tr>
 				<td>5:00 - 6:00</td>
-				<td id="05:00:00M">&nbsp;</td>
-				<td id="05:00:00T">&nbsp;</td>
-				<td id="05:00:00W">&nbsp;</td>
-				<td id="05:00:00R">&nbsp;</td>
-				<td id="05:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="06:00:00">
+			<tr>
 				<td>6:00 - 7:00</td>
-				<td id="06:00:00M">&nbsp;</td>
-				<td id="06:00:00T">&nbsp;</td>
-				<td id="06:00:00W">&nbsp;</td>
-				<td id="06:00:00R">&nbsp;</td>
-				<td id="06:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
-			<tr id="07:00:00">
+			<tr>
 				<td>7:00 - 8:00</td>
-				<td id="07:00:00M">&nbsp;</td>
-				<td id="07:00:00T">&nbsp;</td>
-				<td id="07:00:00W">&nbsp;</td>
-				<td id="07:00:00R">&nbsp;</td>
-				<td id="07:00:00F">&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
 			</tr>
 		</table>
-		
-	<?php
-	$sql = "SELECT * from section WHERE userID=".$UID['userID']."";
-	$CRNRes = mysqli_query($conn,$sql);	
-	$CRN = array();
-	while ($rows = mysqli_fetch_array($CRNRes)) {
-		$CRN[] = $rows['CRN1'];
-		$CRN[] = $rows['CRN2'];
-		$CRN[] = $rows['CRN3'];
-		$CRN[] = $rows['CRN4'];
-		$CRN[] = $rows['CRN5'];
-	}
-	//every timeslot
-	$timesArr = array("08:00:00", "09:00:00", "10:00:00", "11:00:00", "12:00:00", "01:00:00", "02:00:00", "03:00:00", "04:00:00", "05:00:00", "06:00:00", "07:00:00");
-	$daysArr = array("M","T","W","R","F");
-
-	$sql = "SELECT * from section";
-	$scheduleRes = mysqli_query($conn,$sql);
-	while ($rows = mysqli_fetch_array($scheduleRes)) {
-		foreach($CRN as $crn){
-			if ($crn == $rows['CRN']){
-				$days=array();
-				$days=explode(',',$rows['days']);
-				echo "<script>alert('".$days[0]."');</script>";
-				$start=$rows['time'];
-				$end=$rows['timeEnd'];
-				foreach($days as $day) {
-					foreach($timesArr as $timeslot){
-						foreach ($daysArr as $days) {
-							if ($start == $timeslot  && $days == $day){
-								
-								$prof=$rows['professor'];
-								$loc=$rows['location'];
-								$taken=$rows['taken'];
-								$REM=$rows['capacity'];
-								$courseIDSchedule=$rows['courseID'];
-								echo "
-								<script>
-								alert('".$rows['courseID']."');
-								scheduleHTML='".$courseIDSchedule."\\nCRN:".$crn."\\n".$prof."\\n".$loc."\\nAct:".$taken."\\nRem:".$REM."';
-								cell=document.getElementById('".$timeslot.$day."');
-								cell.innerHTML=scheduleHTML;
-								</script>
-								";
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	?>
 	</div>
 			<div id="Audit" style="display:none">
 		<div class="row">
