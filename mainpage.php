@@ -319,7 +319,7 @@ $UID=mysqli_fetch_array($UIDQ);
 			
 
 				<div class="auditText">
-					<p>Courses Completed</p>
+					<p>Courses Completed List</p>
 				</div>
 					<table align="center">
 					<tr>
